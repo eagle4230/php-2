@@ -13,5 +13,7 @@
       "email": "armrt@mail.ru"
     }
   ],
-  "require": {}
+  "require": {
+    "fakerphp/faker": "^1.21"
+  }
 }
