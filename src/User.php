@@ -11,21 +11,21 @@ class User
   public function __construct(int $id, string $name, string $lastName) {
     $this->id = $id;
     $this->name = $name;
-    $this->last_name = $lastName;
+    $this->lastName = $lastName;
   }
 
   public function getId(): int
   {
-    return $this->$id;
+    return $this->id;
   }
 
   public function getName(): string
   {
-    return $this->$name;
+    return $this->name;
   }
   
   public function getLastName(): string
   {
-    return $this->$lastName;
+    return $this->lastName;
   }
 }

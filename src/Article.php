@@ -18,21 +18,21 @@ class Article
 
   public function getId(): int
   {
-    return $this->$id;
+    return $this->id;
   }
 
   public function getIdUser(): int
   {
-    return $this->$idUser;
+    return $this->idUser;
   }
   
   public function getTitle(): string
   {
-    return $this->$title;
+    return $this->title;
   }
   
   public function getText(): string
   {
-    return $this->$text;
+    return $this->text;
   }
 }

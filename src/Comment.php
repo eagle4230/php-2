@@ -18,21 +18,21 @@ class Comment
 
   public function getId(): int
   {
-    return $this->$id;
+    return $this->id;
   }
 
   public function getIdUser(): int
   {
-    return $this->$idUser;
+    return $this->idUser;
   }
   
   public function getIdArticle(): int
   {
-    return $this->$idArticle;
+    return $this->idArticle;
   }
 
     public function getText(): string
   {
-    return $this->$text;
+    return $this->text;
   }
 }
