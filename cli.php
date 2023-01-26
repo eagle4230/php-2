@@ -3,17 +3,22 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 use GB\CP\User;
-use GB\CP\Article;
+use GB\CP\Post;
 use GB\CP\Comment;
 
-$vasy = new User(1, 'Vasy', 'Pupkin');
-//var_dump($vasy);
-echo $vasy->getLastName() . PHP_EOL;
+$faker = Faker\Factory::create('ru_RU');
 
-$art = new Article(1, 1, 'Use composer', 'Install ...');
-//var_dump($art);
-echo $art->getTitle() . PHP_EOL;
+if ($argv[1] == "user") {
+  $user = new User($faker->firstName(), $faker->lastName());
+  echo $user . PHP_EOL;
+}
 
-$com = new Comment(1, 1, 1, 'Cool!');
-//var_dump($com);
-echo $com->getText() . PHP_EOL;
+if ($argv[1] == "post") {
+  $post = new Post($faker->realText($maxNbChars = 60), $faker->realText($maxNbChars = 320));
+  echo $post . PHP_EOL;
+}
+
+if ($argv[1] == "comment") {
+  $comment = new Comment($faker->realText($maxNbChars = 180));
+  echo $comment . PHP_EOL;
+}

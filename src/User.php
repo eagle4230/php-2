@@ -8,24 +8,13 @@ class User
   private string $name;
   private string $lastName;
  
-  public function __construct(int $id, string $name, string $lastName) {
-    $this->id = $id;
+  public function __construct(string $name, string $lastName) {
     $this->name = $name;
     $this->lastName = $lastName;
   }
 
-  public function getId(): int
+  public function __toString(): string
   {
-    return $this->id;
-  }
-
-  public function getName(): string
-  {
-    return $this->name;
-  }
-  
-  public function getLastName(): string
-  {
-    return $this->lastName;
+    return "$this->name $this->lastName";
   }
 }
