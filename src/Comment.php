@@ -1,5 +1,7 @@
 <?php
 
+namespace GB\CP;
+
 class Comment
 {
   private int $id;

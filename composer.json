@@ -1,0 +1,17 @@
+{
+  "name": "gb/cp",
+  "description": "Course project",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "GB\\CP\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Artem",
+      "email": "armrt@mail.ru"
+    }
+  ],
+  "require": {}
+}

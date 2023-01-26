@@ -1,5 +1,7 @@
 <?php
 
+namespace GB\CP;
+
 class Article
 {
   private int $id;

@@ -1,5 +1,7 @@
 <?php
 
+namespace GB\CP;
+
 class User
 {
   private int $id;
