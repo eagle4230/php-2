@@ -35,7 +35,7 @@ class User
 
   public function getLastName(): string
   {
-    return $this->LastName;
+    return $this->lastName;
   }
 
   public function setLastName(string $LastName): void

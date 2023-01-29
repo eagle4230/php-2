@@ -1,24 +1,17 @@
 <?php
 
 use GB\CP\Blog\{User, Post, Comment};
+use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
 
-include __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 $faker = Faker\Factory::create('ru_RU');
 
-switch ($argv[1]) {
-  case "user":
-    $user = new User($faker->firstName(), $faker->lastName());
-    echo $user . PHP_EOL;
-    break;
-  case "post":
-    $post = new Post($faker->realText($maxNbChars = 60), $faker->realText($maxNbChars = 320));
-    echo $post . PHP_EOL;
-    break;
-  case "comment":
-    $comment = new Comment($faker->realText($maxNbChars = 180));
-    echo $comment . PHP_EOL;
-    break;
-  default:
-    echo "Нет аргументов!!!";
-}
+//Создаём объект подключения к SQLite
+$connection = new PDO('sqlite:' . __DIR__ . '/blog.sqlite');
+
+//Создаём объект репозитория
+$usersRepository = new SqliteUsersRepository($connection);
+
+//Добавляем в репозиторий пользователя
+$usersRepository->save(new User("$faker->firstName", "$faker->lastName"));
