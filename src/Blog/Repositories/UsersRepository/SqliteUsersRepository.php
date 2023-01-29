@@ -3,7 +3,8 @@
 namespace GB\CP\Blog\Repositories\UsersRepository;
 
 use GB\CP\Blog\User;
-use \PDO;
+use GB\CP\Blog\UUID;
+use PDO;
 
 class SqliteUsersRepository
 {
@@ -17,13 +18,14 @@ class SqliteUsersRepository
   {
     // Подготавливаем запрос
     $statement = $this->connection->prepare(
-      'INSERT INTO users (first_name, last_name) VALUES (:first_name, :last_name)'
+      'INSERT INTO users (uuid, first_name, last_name) VALUES (:uuid, :first_name, :last_name)'
     );
 
     // Выполняем запрос с конкретными значениями
     $statement->execute([
+      ':uuid' => $user->getUUID(),
       ':first_name' => $user->getFirstName(),
-      ':last_name' => $user->getLastName(),
+      ':last_name' => $user->getLastName()
     ]);
 
   }

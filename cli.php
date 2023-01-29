@@ -1,6 +1,6 @@
 <?php
 
-use GB\CP\Blog\{User, Post, Comment};
+use GB\CP\Blog\{User, Post, Comment, UUID};
 use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -14,4 +14,4 @@ $connection = new PDO('sqlite:' . __DIR__ . '/blog.sqlite');
 $usersRepository = new SqliteUsersRepository($connection);
 
 //Добавляем в репозиторий пользователя
-$usersRepository->save(new User("$faker->firstName", "$faker->lastName"));
+$usersRepository->save(new User(UUID::random(), "$faker->firstName", "$faker->lastName"));
