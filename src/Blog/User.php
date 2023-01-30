@@ -7,12 +7,18 @@ use GB\CP\Blog\UUID;
 class User
 {
   private UUID $uuid;
+  private string $username;
   private string $firstName;
   private string $lastName;
  
-  public function __construct(UUID $uuid, string $firstName, string $lastName)
+  public function __construct(
+    UUID $uuid, 
+    string $username, 
+    string $firstName, 
+    string $lastName)
   {
     $this->uuid = $uuid;
+    $this->username = $username;
     $this->firstName = $firstName;
     $this->lastName = $lastName;
   }
@@ -22,10 +28,20 @@ class User
     return $this->uuid;
   }
   
- // public function setUUID(UUID $uuid): void
- // {
- //   $this->uuid = $uuid;
- // }
+  public function setUUID(UUID $uuid): void
+  {
+    $this->uuid = $uuid;
+  }
+
+  public function getUsername(): string
+  {
+    return $this->username;
+  }
+
+  public function setUsername(string $username): void
+  {
+    $this->username = $username;
+  }
 
   public function getFirstName(): string
   {
@@ -49,6 +65,6 @@ class User
   
   public function __toString(): string
   {
-    return "$this->uuid $this->firstName $this->lastName";
+    return "$this->uuid $this->username $this->firstName $this->lastName";
   }
 }

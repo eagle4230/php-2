@@ -14,4 +14,13 @@ $connection = new PDO('sqlite:' . __DIR__ . '/blog.sqlite');
 $usersRepository = new SqliteUsersRepository($connection);
 
 //Добавляем в репозиторий пользователя
-$usersRepository->save(new User(UUID::random(), "$faker->firstName", "$faker->lastName"));
+/*
+$usersRepository->save(new User(
+  UUID::random(),
+  "$faker->userName",
+  "$faker->firstName",
+  "$faker->lastName")
+);
+*/
+
+echo $usersRepository->get(new UUID("0a7615e4-413e-4a00-9b21-a81bc5eebf21")) . PHP_EOL;
