@@ -65,6 +65,7 @@ class User
   
   public function __toString(): string
   {
-    return "$this->uuid $this->username $this->firstName $this->lastName";
+    return "UUID: $this->uuid" . PHP_EOL . "Login: $this->username" . PHP_EOL . 
+    "Имя: $this->firstName" . PHP_EOL . "Фамилия: $this->lastName";
   }
 }

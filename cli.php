@@ -13,22 +13,8 @@ $connection = new PDO('sqlite:' . __DIR__ . '/blog.sqlite');
 //Создаём объект репозитория
 $usersRepository = new SqliteUsersRepository($connection);
 
-//Добавляем в репозиторий пользователя
-/*
-$usersRepository->save(new User(
-  UUID::random(),
-  "$faker->userName",
-  "$faker->firstName",
-  "$faker->lastName")
-);
-*/
-
-//Извлекаем из репозитория пользователя по UUID
-//echo $usersRepository->get(new UUID("0a7615e4-413e-4a00-9b21-a81bc5eebf21")) . PHP_EOL;
-
-//Ловим исключения
 try {
-  ///*
+  /*
   //Добавляем в репозиторий пользователя
   $usersRepository->save(new User(
     UUID::random(),
@@ -37,10 +23,14 @@ try {
     "$faker->lastName"
     )
   );
-  //*/
+  */
+
   //Извлекаем из репозитория пользователя по UUID
-  echo $usersRepository->get(new UUID("b229eb01-ff35-4f62-8a32-7d71840eeaa0")) . PHP_EOL;
+  //echo $usersRepository->get(new UUID("54a416a8-f974-4ea0-8a1c-0814f1eba189")) . PHP_EOL;
+
+  //Извлекаем из репозитория пользователя по username
+  echo $usersRepository->getByUsername('taksenov') . PHP_EOL;
 
 } catch (Exception $e) {
-  echo $e->getMessage();
+  echo $e->getMessage() . PHP_EOL;
 }

@@ -5,7 +5,9 @@ namespace GB\CP\Blog\Repositories\UsersRepository;
 use GB\CP\Blog\User;
 use GB\CP\Blog\UUID;
 use GB\CP\Blog\Exceptions\UserNotFoundException;
+use GB\CP\Blog\Exceptions\InvalidArgumentException;
 use \PDO;
+use \PDOStatement;
 
 class SqliteUsersRepository implements UsersRepositoryInterface
 {
@@ -44,11 +46,31 @@ class SqliteUsersRepository implements UsersRepositoryInterface
       ':uuid' => (string)$uuid
     ]);
 
+    return $this->getUser($statement, $uuid); 
+    
+  } 
+
+
+  public function getByUsername(string $username): User
+  {
+    $statement = $this->connection->prepare(
+      'SELECT * FROM users WHERE username = :username'
+    );
+
+    $statement->execute([
+      ':username' => $username,
+    ]);
+    
+    return $this->getUser($statement, $username); 
+  }
+
+
+  private function getUser(PDOStatement $statement, string $errorString): User
+  {
     $result = $statement->fetch(PDO::FETCH_ASSOC);
-  
-    // Бросаем исключение, если пользователь не найден
+
     if ($result === false) {
-      throw new UserNotFoundException("Cannot get user: $uuid" . PHP_EOL);
+      throw new UserNotFoundException("Cannot find user: $errorString");
     }
 
     return new User(
@@ -57,5 +79,6 @@ class SqliteUsersRepository implements UsersRepositoryInterface
       $result['first_name'], 
       $result['last_name']
     );
-  } 
+  }
+
 }
