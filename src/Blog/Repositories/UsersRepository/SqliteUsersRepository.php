@@ -48,7 +48,7 @@ class SqliteUsersRepository
   
     // Бросаем исключение, если пользователь не найден
     if ($result === false) {
-      throw new UserNotFoundException("Cannot get user: $uuid");
+      throw new UserNotFoundException("Cannot get user: $uuid" . PHP_EOL);
     }
 
     return new User(

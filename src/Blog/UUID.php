@@ -17,7 +17,7 @@ class UUID
   // Таким образом, мы гарантируем, что если объект
   // был создан, то он точно содержит правильный UUID
     if (!uuid_is_valid($uuidString)) {
-      throw new InvalidArgumentException("Malformed UUID: $this->uuidString");
+      throw new InvalidArgumentException("Malformed UUID: $this->uuidString" . PHP_EOL);
     }
   }
   // А так мы можем сгенерировать новый случайный UUID
