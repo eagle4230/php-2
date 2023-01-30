@@ -7,7 +7,7 @@ use GB\CP\Blog\UUID;
 use GB\CP\Blog\Exceptions\UserNotFoundException;
 use \PDO;
 
-class SqliteUsersRepository
+class SqliteUsersRepository implements UsersRepositoryInterface
 {
   private PDO $connection;
 

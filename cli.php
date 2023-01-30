@@ -23,10 +23,24 @@ $usersRepository->save(new User(
 );
 */
 
+//Извлекаем из репозитория пользователя по UUID
 //echo $usersRepository->get(new UUID("0a7615e4-413e-4a00-9b21-a81bc5eebf21")) . PHP_EOL;
 
+//Ловим исключения
 try {
+  ///*
+  //Добавляем в репозиторий пользователя
+  $usersRepository->save(new User(
+    UUID::random(),
+    "$faker->userName",
+    "$faker->firstName",
+    "$faker->lastName"
+    )
+  );
+  //*/
+  //Извлекаем из репозитория пользователя по UUID
   echo $usersRepository->get(new UUID("b229eb01-ff35-4f62-8a32-7d71840eeaa0")) . PHP_EOL;
+
 } catch (Exception $e) {
   echo $e->getMessage();
 }
