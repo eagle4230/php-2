@@ -4,6 +4,7 @@ use GB\CP\Blog\{User, Post, Comment, UUID};
 use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
 use GB\CP\Blog\Commands\CreateUserCommand;
 use GB\CP\Blog\Commands\Exceptions\CommandException;
+use GB\CP\Blog\Commands\Arguments;
 
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -36,7 +37,9 @@ try {
   //Извлекаем из репозитория пользователя по username
   //echo $usersRepository->getByUsername('taksenov') . PHP_EOL;
 
-  $command->handle($argv);
+  //$command->handle($argv);
+
+  $command->handle(Arguments::fromArgv($argv));
 
 } catch (Exception $e) {
   echo $e->getMessage() . PHP_EOL;
