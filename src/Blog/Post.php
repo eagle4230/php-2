@@ -13,13 +13,12 @@ class Post
     private string $text
   )
   {
-
   }
 
-public function getUser(): User
-{
-  return $this->user;
-}
+  public function getUser(): User
+  {
+    return $this->user;
+  }
 
   public function getUuid(): UUID
   {

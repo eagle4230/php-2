@@ -4,43 +4,33 @@ namespace GB\CP\Blog;
 
 class Comment
 {
-  private int $id;
-  private int $idUser;
-  private int $idPost;
-  private string $text;
-
-  public function __construct(string $text){
-    $this->text = $text;
+  public function __construct(
+    private UUID $uuid,
+    private Post $post,
+    private User $user,
+    private string $text
+  )
+  {
   }
 
-  public function getId(): int
+  public function getUuid(): UUID
   {
-    return $this->id;
+    return $this->uuid;
   }
   
-  public function setId(int $id): void
+  public function setUuid(UUID $uuid): void
   {
-    $this->id = $id;
+    $this->uuid = $uuid;
   }
 
-  public function getIdUser(): int
+  public function getUser(): User
   {
-    return $this->idUser;
-  }
-  
-  public function setIdUser(int $idUser): void
-  {
-    $this->idUser = $idUser;
+    return $this->user;
   }
 
-  public function getIdPost(): int
+  public function getPost(): Post
   {
-    return $this->idPost;
-  }
-  
-  public function setIdPost(int $idPost): void
-  {
-    $this->idPost = $idPost;
+    return $this->post;
   }
 
   public function getText(): string
