@@ -25,14 +25,21 @@ try {
 
 $user = $usersRepository->get(new UUID('54a416a8-f974-4ea0-8a1c-0814f1eba189'));
 
-//$post = new Post(
-//  UUID::random(),
-//  $user,
-//  'Заголовок2',
-//  'Текст поста длинный'
-//);
+// Сохранение поста
+
+$post = new Post(
+  UUID::random(),
+  $user,
+  "$faker->sentence(4)",
+  "$faker->text(30)"
+);
 
 $postsRepository->save($post);
+
+// Извлечение поста
+$post = $postsRepository->get(new UUID("f67b7aad-da29-4b8d-bd4e-b2d4f103babe"));
+
+print_r($post);
 
 } catch (Exception $e) {
   echo $e->getMessage();

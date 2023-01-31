@@ -6,6 +6,8 @@ use GB\CP\Blog\Post;
 use GB\CP\Blog\UUID;
 use \PDO;
 use \PDOStatement;
+use GB\CP\Blog\Exceptions\PostNotFoundException;
+use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
 
 class SqlitePostsRepository implements PostsRepositoryInterface
 {
@@ -47,8 +49,22 @@ class SqlitePostsRepository implements PostsRepositoryInterface
   private function getPost(PDOStatement $statement, string $postUuid): Post
   {
     $result = $statement->fetch(PDO::FETCH_ASSOC);
-var_dump($result);
-die();
+
+    if ($result === false) {
+      throw new PostNotFoundException(
+        "Cannot find post: $postUuid" . PHP_EOL
+      );
+    }
+
+    $userRepository = new SqliteUsersRepository($this->connection);
+    $user = $userRepository->get(new UUID($result['author_uuid'])); 
+ 
+    return new Post(
+      new UUID($result['uuid']),
+      $user,
+      $result['title'],
+      $result['text']
+    );
   }
 
 }
