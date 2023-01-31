@@ -2,36 +2,33 @@
 
 namespace GB\CP\Blog;
 
+use GB\CP\Blog\User;
+
 class Post
 {
-  private int $id;
-  private int $idUser;
-  private string $title;
-  private string $text;
+  public function __construct(
+    private UUID $uuid,
+    private User $user,
+    private string $title,
+    private string $text
+  )
+  {
 
-  public function __construct(string $title, string $text){
-    $this->title = $title;
-    $this->text = $text;
   }
 
-  public function getId(): int
+public function getUser(): User
+{
+  return $this->user;
+}
+
+  public function getUuid(): UUID
   {
-    return $this->id;
+    return $this->uuid;
   }
   
-  public function setId(int $id): void
+  public function setUuid(UUID $uuid): void
   {
-    $this->id = $id;
-  }
-
-  public function getIdUser(): int
-  {
-    return $this->idUser;
-  }
-
-  public function setIdUser(int $idUser): void
-  {
-    $this->idUser = $idUser;
+    $this->uuid = $uuid;
   }
 
   public function getTitle(): string
