@@ -1,24 +1,79 @@
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php';
+use GB\CP\Blog\{User, Post, Comment, UUID};
+use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
+use GB\CP\Blog\Repositories\PostsRepository\SqlitePostsRepository;
+use GB\CP\Blog\Commands\CreateUserCommand;
+use GB\CP\Blog\Commands\Exceptions\CommandException;
+use GB\CP\Blog\Commands\Arguments;
 
-use GB\CP\User;
-use GB\CP\Post;
-use GB\CP\Comment;
+
+
+require_once __DIR__ . '/vendor/autoload.php';
 
 $faker = Faker\Factory::create('ru_RU');
 
-if ($argv[1] == "user") {
-  $user = new User($faker->firstName(), $faker->lastName());
-  echo $user . PHP_EOL;
+//Создаём объект подключения к SQLite
+$connection = new PDO('sqlite:' . __DIR__ . '/blog.sqlite');
+
+//Создаём объект репозитория
+$usersRepository = new SqliteUsersRepository($connection);
+$postsRepository = new SqlitePostsRepository($connection);
+
+
+try {
+
+$user = $usersRepository->get(new UUID('54a416a8-f974-4ea0-8a1c-0814f1eba189'));
+
+// Сохранение поста
+
+$post = new Post(
+  UUID::random(),
+  $user,
+  "$faker->sentence(4)",
+  "$faker->text(30)"
+);
+
+$postsRepository->save($post);
+
+// Извлечение поста
+$post = $postsRepository->get(new UUID("f67b7aad-da29-4b8d-bd4e-b2d4f103babe"));
+
+print_r($post);
+
+} catch (Exception $e) {
+  echo $e->getMessage();
 }
 
-if ($argv[1] == "post") {
-  $post = new Post($faker->realText($maxNbChars = 60), $faker->realText($maxNbChars = 320));
-  echo $post . PHP_EOL;
-}
 
-if ($argv[1] == "comment") {
-  $comment = new Comment($faker->realText($maxNbChars = 180));
-  echo $comment . PHP_EOL;
+
+
+/*
+$command = new CreateUserCommand($usersRepository);
+
+try {
+  
+  //Добавляем в репозиторий пользователя
+  //$usersRepository->save(new User(
+  //  UUID::random(),
+  //  "$faker->userName",
+  //  "$faker->firstName",
+  //  "$faker->lastName"
+  //  )
+  //);
+  
+
+  //Извлекаем из репозитория пользователя по UUID
+  //echo $usersRepository->get(new UUID("54a416a8-f974-4ea0-8a1c-0814f1eba189")) . PHP_EOL;
+
+  //Извлекаем из репозитория пользователя по username
+  //echo $usersRepository->getByUsername('taksenov') . PHP_EOL;
+
+  //$command->handle($argv);
+
+  $command->handle(Arguments::fromArgv($argv));
+
+} catch (Exception $e) {
+  echo $e->getMessage() . PHP_EOL;
 }
+*/
