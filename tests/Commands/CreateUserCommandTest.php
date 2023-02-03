@@ -106,4 +106,55 @@ class CreateUserCommandTest extends TestCase
     ]));
   }
 
+  // Тест, проверяющий, что команда сохраняет пользователя в репозитории
+  public function testItSavesUserToRepository(): void
+  {
+    // Создаём объект анонимного класса
+    $usersRepository = new class implements UsersRepositoryInterface
+    {
+      // В этом свойстве мы храним информацию о том,
+      // был ли вызван метод save
+      private bool $called = false;
+    
+      public function save(User $user): void
+      {
+        // Запоминаем, что метод save был вызван
+        $this->called = true;
+      }
+
+      public function get(UUID $uuid): User
+      {
+        throw new UserNotFoundException("Not found");
+      }
+
+      public function getByUsername(string $username): User
+      {
+        throw new UserNotFoundException("Not found");
+      }
+
+      // Этого метода нет в контракте UsersRepositoryInterface,
+      // но ничто не мешает его добавить.
+      // С помощью этого метода мы можем узнать,
+      // был ли вызван метод save
+      public function wasCalled(): bool
+      {
+        return $this->called;
+      }
+    };
+
+    // Передаём наш мок в команду
+    $command = new CreateUserCommand($usersRepository);
+
+    // Запускаем команду
+    $command->handle(new Arguments([
+      'username' => 'Ivan',
+      'first_name' => 'Ivan',
+      'last_name' => 'Nikitin',
+    ]));
+
+    // Проверяем утверждение относительно мока,
+    // а не утверждение относительно команды
+    $this->assertTrue($usersRepository->wasCalled());
+  }
+
 }
