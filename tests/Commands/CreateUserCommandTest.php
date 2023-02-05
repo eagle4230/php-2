@@ -107,7 +107,11 @@ class CreateUserCommandTest extends TestCase
   }
 
   // Тест, проверяющий, что команда сохраняет пользователя в репозитории
-  public function testItSavesUserToRepository(): void
+
+    /**
+     * @throws CommandException
+     */
+    public function testItSavesUserToRepository(): void
   {
     // Создаём объект анонимного класса
     $usersRepository = new class implements UsersRepositoryInterface
