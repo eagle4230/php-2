@@ -1,0 +1,88 @@
+GET http://localhost:8000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: XDEBUG_SESSION=start
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-06T123411.200.html
+
+###
+
+GET http://localhost:8080
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: XDEBUG_SESSION=start
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-06T121740.200.html
+
+###
+
+GET http://localhost:8080
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: XDEBUG_SESSION=start
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-06T121711.200.html
+
+###
+
+GET http://localhost:8080
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: XDEBUG_SESSION=start
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-06T121654.200.html
+
+###
+
+GET http://localhost:8080
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: XDEBUG_SESSION=start
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-06T121620.200.html
+
+###
+
+GET http://localhost:8080
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: XDEBUG_SESSION=start
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-06T121611.200.html
+
+###
+
+GET http://localhost:8080
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: XDEBUG_SESSION=start
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-06T121540.200.html
+
+###
+
+GET http://localhost:8080
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-06T104539.200.html
+
+###
+
+GET http://localhost:8080/cli.php
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-06T103305.200.html
+
+###
+
