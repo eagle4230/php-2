@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b41d1d5-e682-4be2-a9ef-0113044cb896" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Blog/Exceptions/JsonException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Actions/Users/CreateUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/blog.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/http.php" beforeDir="false" afterPath="$PROJECT_DIR$/http.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Http/Request.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Http/Request.php" afterDir="false" />
     </list>
@@ -90,6 +92,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "php.override.implement.member.chooser.php.doc": "NONE",
     "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php.debug",
     "vue.rearranger.settings.migration": "true"
   },
@@ -145,7 +148,7 @@
       <workItem from="1675669212460" duration="2550000" />
       <workItem from="1675675593801" duration="14693000" />
       <workItem from="1675709515464" duration="83000" />
-      <workItem from="1675710110455" duration="4117000" />
+      <workItem from="1675710110455" duration="8413000" />
     </task>
     <servers />
   </component>
