@@ -1,7 +1,10 @@
 <?php
 
-$a = 1;
+use GB\CP\Http\Request;
 
-$a++;
+require_once __DIR__ . '/vendor/autoload.php';
 
-echo "Hello!";
+// Создаём объект запроса из суперглобальных переменных
+$request = new Request($_GET, $_SERVER);
+
+$path = $request->path();
