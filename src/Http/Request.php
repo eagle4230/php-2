@@ -3,6 +3,7 @@
 namespace GB\CP\Http;
 
 use GB\CP\Blog\Exceptions\HttpException;
+use GB\CP\Blog\Exceptions\JsonException;
 
 class Request
 {
@@ -10,7 +11,8 @@ class Request
         // аргумент, соответствующий суперглобальной переменной $_GET
         private array $get,
         // аргумент, соответствующий суперглобальной переменной $_SERVER
-        private array $server
+        private array $server,
+        private string $body,
     )
     {
     }
@@ -88,5 +90,46 @@ class Request
             throw new HttpException("Empty header in the request: $header");
         }
         return $value;
+    }
+
+    // Метод для получения массива,
+    // сформированного из json-форматированного
+    // тела запроса
+    public function jsonBody(): array
+    {
+        try {
+            // Пытаемся декодировать json
+            $data = json_decode(
+                $this->body,
+                // Декодируем в ассоциативный массив
+                associative: true,
+                // Бросаем исключение при ошибке
+                flags: JSON_THROW_ON_ERROR
+            );
+        } catch (JsonException) {
+            throw new HttpException("Cannot decode json body");
+        }
+
+        if (!is_array($data)) {
+            throw new HttpException("Not an array/object in json body");
+        }
+        return $data;
+    }
+
+    // Метод для получения отдельного поля
+    // из json-форматированного тела запроса
+    /**
+     * @throws HttpException
+     */
+    public function jsonBodyField(string $field): mixed
+    {
+        $data = $this->jsonBody();
+        if (!array_key_exists($field, $data)) {
+            throw new HttpException("No such field: $field");
+        }
+        if (empty($data[$field])) {
+            throw new HttpException("Empty field: $field");
+        }
+        return $data[$field];
     }
 }

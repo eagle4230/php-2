@@ -10,7 +10,13 @@ use GB\CP\Http\SuccessfulResponse;
 require_once __DIR__ . '/vendor/autoload.php';
 
 // Создаём объект запроса из суперглобальных переменных
-$request = new Request($_GET, $_SERVER);
+$request = new Request(
+    $_GET,
+    $_SERVER,
+    // Читаем поток, содержащий тело запроса
+    file_get_contents('php://input'),
+);
+
 
 $routes = [
     // Создаём действие, соответствующее пути /users/show
