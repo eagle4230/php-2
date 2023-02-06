@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b41d1d5-e682-4be2-a9ef-0113044cb896" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Http/ErrorResponse.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Response.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/SuccessfulResponse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Actions/ActionInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Actions/Users/FindByUsername.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Actions/FindByUsernameActionTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/http.php" beforeDir="false" afterPath="$PROJECT_DIR$/http.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,30 +77,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Constants": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php.debug",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Constants&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.webide.settings.project.settings.php.debug&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="HTTP Request.rest-api_1 | #1">
+}</component>
+  <component name="RunManager" selected="PHPUnit.FindByUsernameActionTest.testItReturnsErrorResponseIfNoUsernameProvided">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="rest-api_1 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_1.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
+    <configuration name="FindByUsernameActionTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP 8.2" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <TestRunner class="Actions\FindByUsernameActionTest" file="$PROJECT_DIR$/tests/Actions/TODO.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FindByUsernameActionTest.testItReturnsErrorResponseIfNoUsernameProvided" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP 8.2" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <TestRunner class="Actions\FindByUsernameActionTest" file="$PROJECT_DIR$/tests/Actions/TODO.php" method="testItReturnsErrorResponseIfNoUsernameProvided" scope="Method" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.FindByUsernameActionTest.testItReturnsErrorResponseIfNoUsernameProvided" />
+        <item itemvalue="PHPUnit.FindByUsernameActionTest" />
         <item itemvalue="HTTP Request.rest-api_1 | #1" />
         <item itemvalue="HTTP Request.rest-api | #1" />
       </list>
@@ -118,7 +136,8 @@
       <updated>1675668318499</updated>
       <workItem from="1675668319916" duration="541000" />
       <workItem from="1675669212460" duration="2550000" />
-      <workItem from="1675675593801" duration="8374000" />
+      <workItem from="1675675593801" duration="14693000" />
+      <workItem from="1675709515464" duration="83000" />
     </task>
     <servers />
   </component>
