@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b41d1d5-e682-4be2-a9ef-0113044cb896" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Blog/Exceptions/HttpException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Request.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/ErrorResponse.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Response.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/SuccessfulResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/http.php" beforeDir="false" afterPath="$PROJECT_DIR$/http.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,6 +72,9 @@
     </include_path>
   </component>
   <component name="ProjectId" id="2LM5oBwRsEhcqnK7DwL9S9ieoW8" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -114,7 +118,7 @@
       <updated>1675668318499</updated>
       <workItem from="1675668319916" duration="541000" />
       <workItem from="1675669212460" duration="2550000" />
-      <workItem from="1675675593801" duration="4594000" />
+      <workItem from="1675675593801" duration="8374000" />
     </task>
     <servers />
   </component>

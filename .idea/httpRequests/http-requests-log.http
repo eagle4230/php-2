@@ -1,6 +1,33 @@
 GET http://localhost:8000
 Connection: Keep-Alive
 User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-06T171454.200.json
+
+###
+
+GET http://localhost:8000/post/create/?name=1
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-06T171420.200.json
+
+###
+
+GET http://localhost:8000/post/create/?name=1
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-06T171122.200.html
+
+###
+
+GET http://localhost:8000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
 Cookie: XDEBUG_SESSION=start
 Accept-Encoding: br,deflate,gzip,x-gzip
 
