@@ -65,14 +65,14 @@ $routes = [
             )
         ),
 
-        //'/posts/create' => new CreatePost(
-        //    new SqlitePostsRepository(
-        //        new PDO('sqlite:' . __DIR__ . '/blog.sqlite')
-        //    ),
-        //    new SqliteUsersRepository(
-        //        new PDO('sqlite:' . __DIR__ . '/blog.sqlite')
-        //    )
-        //),
+        '/posts/create' => new CreatePost(
+            new SqliteUsersRepository(
+                new PDO('sqlite:' . __DIR__ . '/blog.sqlite')
+            ),
+            new SqlitePostsRepository(
+                new PDO('sqlite:' . __DIR__ . '/blog.sqlite')
+            )
+        ),
     ],
 ];
 

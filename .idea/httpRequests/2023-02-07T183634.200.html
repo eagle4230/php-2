@@ -1,0 +1,51 @@
+<br/>
+<font size='1'>
+    <table class='xdebug-error xe-uncaught-exception' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+        <tr>
+            <th align='left' bgcolor='#f57900' colspan="5"><span
+                    style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Fatal error:
+                Uncaught TypeError: GB\CP\Http\Actions\Posts\CreatePost::__construct(): Argument #1 ($usersRepository)
+                must be of type GB\CP\Blog\Repositories\UsersRepository\UsersRepositoryInterface,
+                GB\CP\Blog\Repositories\PostsRepository\SqlitePostsRepository given, called in
+                /home/eagle/prj/GeekBrains/8_PHP-2/KP/http.php on line 68 and defined in
+                /home/eagle/prj/GeekBrains/8_PHP-2/KP/src/Http/Actions/Posts/CreatePost.php on line <i>20</i></th>
+        </tr>
+        <tr>
+            <th align='left' bgcolor='#f57900' colspan="5"><span
+                    style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> TypeError:
+                GB\CP\Http\Actions\Posts\CreatePost::__construct(): Argument #1 ($usersRepository) must be of type
+                GB\CP\Blog\Repositories\UsersRepository\UsersRepositoryInterface,
+                GB\CP\Blog\Repositories\PostsRepository\SqlitePostsRepository given, called in
+                /home/eagle/prj/GeekBrains/8_PHP-2/KP/http.php on line 68 in
+                /home/eagle/prj/GeekBrains/8_PHP-2/KP/src/Http/Actions/Posts/CreatePost.php on line <i>20</i></th>
+        </tr>
+        <tr>
+            <th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th>
+        </tr>
+        <tr>
+            <th align='center' bgcolor='#eeeeec'>#</th>
+            <th align='left' bgcolor='#eeeeec'>Time</th>
+            <th align='left' bgcolor='#eeeeec'>Memory</th>
+            <th align='left' bgcolor='#eeeeec'>Function</th>
+            <th align='left' bgcolor='#eeeeec'>Location</th>
+        </tr>
+        <tr>
+            <td bgcolor='#eeeeec' align='center'>1</td>
+            <td bgcolor='#eeeeec' align='center'>0.0083</td>
+            <td bgcolor='#eeeeec' align='right'>445496</td>
+            <td bgcolor='#eeeeec'>{main}( )</td>
+            <td title='/home/eagle/prj/GeekBrains/8_PHP-2/KP/http.php' bgcolor='#eeeeec'>.../http.php<b>:</b>0</td>
+        </tr>
+        <tr>
+            <td bgcolor='#eeeeec' align='center'>2</td>
+            <td bgcolor='#eeeeec' align='center'>0.1145</td>
+            <td bgcolor='#eeeeec' align='right'>1274200</td>
+            <td bgcolor='#eeeeec'>GB\CP\Http\Actions\Posts\CreatePost->__construct(
+                <span>$usersRepository = </span><span>class GB\CP\Blog\Repositories\PostsRepository\SqlitePostsRepository { private PDO $connection = class PDO {  } }</span>,
+                <span>$postsRepository = </span><span>class GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository { private PDO $connection = class PDO {  } }</span>
+                )
+            </td>
+            <td title='/home/eagle/prj/GeekBrains/8_PHP-2/KP/http.php' bgcolor='#eeeeec'>.../http.php<b>:</b>68</td>
+        </tr>
+    </table>
+</font>
