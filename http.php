@@ -1,13 +1,13 @@
 <?php
 
-use GB\CP\Blog\Exceptions\AppException;
 use GB\CP\Blog\Repositories\PostsRepository\SqlitePostsRepository;
 use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
+use GB\CP\Http\Actions\Posts\CreatePost;
+use GB\CP\Http\Actions\Posts\FindByUuid;
 use GB\CP\Http\Actions\Users\CreateUser;
 use GB\CP\Http\Actions\Users\FindByUsername;
 use GB\CP\Http\ErrorResponse;
 use GB\CP\Http\Request;
-use GB\CP\Http\SuccessfulResponse;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -52,12 +52,11 @@ $routes = [
                 new PDO('sqlite:' . __DIR__ . '/blog.sqlite')
             )
         ),
-        //TODO
-        //'/posts/show' => new FindByUuid(
-        //    new SqlitePostsRepository(
-        //        new PDO('sqlite:' . __DIR__ . '/blog.sqlite')
-        //    )
-        //),
+        '/posts/show' => new FindByUuid(
+            new SqlitePostsRepository(
+                new PDO('sqlite:' . __DIR__ . '/blog.sqlite')
+            )
+        ),
     ],
     'POST' => [
         '/users/create' => new CreateUser(
@@ -65,7 +64,7 @@ $routes = [
                 new PDO('sqlite:' . __DIR__ . '/blog.sqlite')
             )
         ),
-        //TODO
+
         //'/posts/create' => new CreatePost(
         //    new SqlitePostsRepository(
         //        new PDO('sqlite:' . __DIR__ . '/blog.sqlite')
