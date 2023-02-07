@@ -3,6 +3,7 @@
 use GB\CP\Blog\Repositories\PostsRepository\SqlitePostsRepository;
 use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
 use GB\CP\Http\Actions\Posts\CreatePost;
+use GB\CP\Http\Actions\Posts\DeletePost;
 use GB\CP\Http\Actions\Posts\FindByUuid;
 use GB\CP\Http\Actions\Users\CreateUser;
 use GB\CP\Http\Actions\Users\FindByUsername;
@@ -69,6 +70,13 @@ $routes = [
             new SqliteUsersRepository(
                 new PDO('sqlite:' . __DIR__ . '/blog.sqlite')
             ),
+            new SqlitePostsRepository(
+                new PDO('sqlite:' . __DIR__ . '/blog.sqlite')
+            )
+        ),
+    ],
+    'DELETE' => [
+        '/posts' => new DeletePost(
             new SqlitePostsRepository(
                 new PDO('sqlite:' . __DIR__ . '/blog.sqlite')
             )

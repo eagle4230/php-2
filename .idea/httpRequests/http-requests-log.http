@@ -1,3 +1,45 @@
+DELETE http://localhost:8000/posts?uuid=b0a3d51f-da92-4655-93e5-374ff3808003
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: XDEBUG_SESSION=start
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-07T192519.200.json
+
+###
+
+DELETE http://localhost:8000/posts?uuid=b0a3d51f-da92-4655-93e5-374ff3808003
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: XDEBUG_SESSION=start
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-07T192506.200.json
+
+###
+
+POST http://localhost:8000/posts?uuid=b0a3d51f-da92-4655-93e5-374ff3808003
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: XDEBUG_SESSION=start
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-07T192328.200.json
+
+###
+
+POST http://localhost:8000/posts?uuid=d1c73958-7455-4cb0-90cd-f7103bfdd7af
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: XDEBUG_SESSION=start
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-07T192238.200.json
+
+###
+
 POST http://localhost:8000/posts/create
 Content-Length: 132
 Content-Type: */*; charset=UTF-8
@@ -455,66 +497,6 @@ User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
 <> 2023-02-07T120732.200.json
-
-###
-
-GET http://localhost:8000/users/show?username=ivan
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-02-07T115512.200.json
-
-###
-
-POST http://localhost:8000/users/create
-Content-Length: 68
-Content-Type: */*; charset=UTF-8
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-"username": "swet",
-"first_name": "Max",
-"last_name": "Brutalov"
-}
-
-<> 2023-02-07T001159.200.json
-
-###
-
-POST http://localhost:8000/users/create
-Content-Length: 68
-Content-Type: */*; charset=UTF-8
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-"username": "swet",
-"first_name": "Max",
-"last_name": "Brutalov"
-}
-
-<> 2023-02-07T001104.200.json
-
-###
-
-POST http://localhost:8000/users/create
-Content-Length: 68
-Content-Type: */*; charset=UTF-8
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-"username": "swet",
-"first_name": "Max",
-"last_name": "Brutalov"
-}
-
-<> 2023-02-07T000432.200.json
 
 ###
 

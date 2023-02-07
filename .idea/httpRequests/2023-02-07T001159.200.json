@@ -1,4 +1,0 @@
-{
-  "success": false,
-  "reason": "SQLSTATE[23000]: Integrity constraint violation: 19 UNIQUE constraint failed: users.username"
-}
