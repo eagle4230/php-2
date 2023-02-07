@@ -2,6 +2,7 @@
 
 namespace GB\CP\Blog\Repositories\PostsRepository;
 
+use GB\CP\Blog\Exceptions\InvalidArgumentException;
 use GB\CP\Blog\Post;
 use GB\CP\Blog\UUID;
 use \PDO;
@@ -34,7 +35,11 @@ class SqlitePostsRepository implements PostsRepositoryInterface
     ]);
   }
 
-  public function get(UUID $uuid): Post
+    /**
+     * @throws PostNotFoundException
+     * @throws InvalidArgumentException
+     */
+    public function get(UUID $uuid): Post
   {
     $statement = $this->connection->prepare(
       'SELECT * FROM posts WHERE uuid = :uuid'
@@ -47,7 +52,11 @@ class SqlitePostsRepository implements PostsRepositoryInterface
 
   }
 
-  private function getPost(PDOStatement $statement, string $postUuid): Post
+    /**
+     * @throws InvalidArgumentException
+     * @throws PostNotFoundException
+     */
+    private function getPost(PDOStatement $statement, string $postUuid): Post
   {
     $result = $statement->fetch(PDO::FETCH_ASSOC);
 

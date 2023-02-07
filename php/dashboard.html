@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /home/eagle/prj/GeekBrains/8_PHP-2/KP/src/Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css?v=9.2.24" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css?v=9.2.24" rel="stylesheet" type="text/css">
+  <link href="_css/style.css?v=9.2.24" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">/home/eagle/prj/GeekBrains/8_PHP-2/KP/src/Blog</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Comment.php.html#5">GB\CP\Blog\Comment</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/CommentsRepository/SqliteCommentsRepository.php.html#9">GB\CP\Blog\Repositories\CommentsRepository\SqliteCommentsRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/UsersRepository/DummyUsersRepository.php.html#9">GB\CP\Blog\Repositories\UsersRepository\DummyUsersRepository</a></td><td class="text-right">33%</td></tr>
+       <tr><td><a href="Commands/Arguments.php.html#7">GB\CP\Blog\Commands\Arguments</a></td><td class="text-right">52%</td></tr>
+       <tr><td><a href="Post.php.html#7">GB\CP\Blog\Post</a></td><td class="text-right">55%</td></tr>
+       <tr><td><a href="User.php.html#7">GB\CP\Blog\User</a></td><td class="text-right">57%</td></tr>
+       <tr><td><a href="UUID.php.html#7">GB\CP\Blog\UUID</a></td><td class="text-right">75%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Commands/Arguments.php.html#7">GB\CP\Blog\Commands\Arguments</a></td><td class="text-right">14</td></tr>
+       <tr><td><a href="UUID.php.html#7">GB\CP\Blog\UUID</a></td><td class="text-right">4</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Commands/Arguments.php.html#28"><abbr title="GB\CP\Blog\Commands\Arguments::fromArgv">fromArgv</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#7"><abbr title="GB\CP\Blog\Comment::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#16"><abbr title="GB\CP\Blog\Comment::getUuid">getUuid</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#21"><abbr title="GB\CP\Blog\Comment::setUuid">setUuid</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#26"><abbr title="GB\CP\Blog\Comment::getUser">getUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#31"><abbr title="GB\CP\Blog\Comment::getPost">getPost</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#36"><abbr title="GB\CP\Blog\Comment::getText">getText</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#41"><abbr title="GB\CP\Blog\Comment::setText">setText</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#46"><abbr title="GB\CP\Blog\Comment::__toString">__toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Post.php.html#28"><abbr title="GB\CP\Blog\Post::setUuid">setUuid</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Post.php.html#38"><abbr title="GB\CP\Blog\Post::setTitle">setTitle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Post.php.html#48"><abbr title="GB\CP\Blog\Post::setText">setText</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Post.php.html#53"><abbr title="GB\CP\Blog\Post::__toString">__toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/CommentsRepository/SqliteCommentsRepository.php.html#14"><abbr title="GB\CP\Blog\Repositories\CommentsRepository\SqliteCommentsRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/CommentsRepository/SqliteCommentsRepository.php.html#19"><abbr title="GB\CP\Blog\Repositories\CommentsRepository\SqliteCommentsRepository::save">save</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/CommentsRepository/SqliteCommentsRepository.php.html#29"><abbr title="GB\CP\Blog\Repositories\CommentsRepository\SqliteCommentsRepository::get">get</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/UsersRepository/DummyUsersRepository.php.html#11"><abbr title="GB\CP\Blog\Repositories\UsersRepository\DummyUsersRepository::save">save</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/UsersRepository/DummyUsersRepository.php.html#19"><abbr title="GB\CP\Blog\Repositories\UsersRepository\DummyUsersRepository::get">get</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#31"><abbr title="GB\CP\Blog\User::setUUID">setUUID</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#41"><abbr title="GB\CP\Blog\User::setUsername">setUsername</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#51"><abbr title="GB\CP\Blog\User::setFirstName">setFirstName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#61"><abbr title="GB\CP\Blog\User::setLastName">setLastName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#66"><abbr title="GB\CP\Blog\User::__toString">__toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UUID.php.html#10"><abbr title="GB\CP\Blog\UUID::__construct">__construct</abbr></a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="Commands/Arguments.php.html#11"><abbr title="GB\CP\Blog\Commands\Arguments::__construct">__construct</abbr></a></td><td class="text-right">80%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Commands/Arguments.php.html#28"><abbr title="GB\CP\Blog\Commands\Arguments::fromArgv">fromArgv</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Commands/Arguments.php.html#11"><abbr title="GB\CP\Blog\Commands\Arguments::__construct">__construct</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="UUID.php.html#10"><abbr title="GB\CP\Blog\UUID::__construct">__construct</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.2.24</a> using <a href="https://secure.php.net/" target="_top">PHP 8.2.1</a> and <a href="https://phpunit.de/">PHPUnit 9.5.28</a> at Sun Feb 5 22:23:42 UTC 2023.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js?v=9.2.24" type="text/javascript"></script>
+  <script src="_js/d3.min.js?v=9.2.24" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js?v=9.2.24" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([2,0,0,0,1,0,3,0,1,0,0,9], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([23,0,0,0,0,0,1,0,0,1,0,26], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[52.94117647058824,8,"<a href=\"Commands\/Arguments.php.html#7\">GB\\CP\\Blog\\Commands\\Arguments<\/a>"],[100,5,"<a href=\"Commands\/CreateUserCommand.php.html#14\">GB\\CP\\Blog\\Commands\\CreateUserCommand<\/a>"],[0,8,"<a href=\"Comment.php.html#5\">GB\\CP\\Blog\\Comment<\/a>"],[100,0,"<a href=\"Exceptions\/AppException.php.html#7\">GB\\CP\\Blog\\Exceptions\\AppException<\/a>"],[100,0,"<a href=\"Exceptions\/ArgumentsException.php.html#5\">GB\\CP\\Blog\\Exceptions\\ArgumentsException<\/a>"],[100,0,"<a href=\"Exceptions\/CommandException.php.html#5\">GB\\CP\\Blog\\Exceptions\\CommandException<\/a>"],[100,0,"<a href=\"Exceptions\/InvalidArgumentException.php.html#5\">GB\\CP\\Blog\\Exceptions\\InvalidArgumentException<\/a>"],[100,0,"<a href=\"Exceptions\/PostNotFoundException.php.html#5\">GB\\CP\\Blog\\Exceptions\\PostNotFoundException<\/a>"],[100,0,"<a href=\"Exceptions\/UserNotFoundException.php.html#5\">GB\\CP\\Blog\\Exceptions\\UserNotFoundException<\/a>"],[55.55555555555556,9,"<a href=\"Post.php.html#7\">GB\\CP\\Blog\\Post<\/a>"],[0,3,"<a href=\"Repositories\/CommentsRepository\/SqliteCommentsRepository.php.html#9\">GB\\CP\\Blog\\Repositories\\CommentsRepository\\SqliteCommentsRepository<\/a>"],[100,5,"<a href=\"Repositories\/PostsRepository\/SqlitePostsRepository.php.html#13\">GB\\CP\\Blog\\Repositories\\PostsRepository\\SqlitePostsRepository<\/a>"],[33.33333333333333,3,"<a href=\"Repositories\/UsersRepository\/DummyUsersRepository.php.html#9\">GB\\CP\\Blog\\Repositories\\UsersRepository\\DummyUsersRepository<\/a>"],[100,6,"<a href=\"Repositories\/UsersRepository\/SqliteUsersRepository.php.html#12\">GB\\CP\\Blog\\Repositories\\UsersRepository\\SqliteUsersRepository<\/a>"],[75,4,"<a href=\"UUID.php.html#7\">GB\\CP\\Blog\\UUID<\/a>"],[57.14285714285714,10,"<a href=\"User.php.html#7\">GB\\CP\\Blog\\User<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[80,3,"<a href=\"Commands\/Arguments.php.html#11\">GB\\CP\\Blog\\Commands\\Arguments::__construct<\/a>"],[0,3,"<a href=\"Commands\/Arguments.php.html#28\">GB\\CP\\Blog\\Commands\\Arguments::fromArgv<\/a>"],[100,2,"<a href=\"Commands\/Arguments.php.html#43\">GB\\CP\\Blog\\Commands\\Arguments::get<\/a>"],[100,1,"<a href=\"Commands\/CreateUserCommand.php.html#18\">GB\\CP\\Blog\\Commands\\CreateUserCommand::__construct<\/a>"],[100,2,"<a href=\"Commands\/CreateUserCommand.php.html#23\">GB\\CP\\Blog\\Commands\\CreateUserCommand::handle<\/a>"],[100,2,"<a href=\"Commands\/CreateUserCommand.php.html#44\">GB\\CP\\Blog\\Commands\\CreateUserCommand::userExists<\/a>"],[0,1,"<a href=\"Comment.php.html#7\">GB\\CP\\Blog\\Comment::__construct<\/a>"],[0,1,"<a href=\"Comment.php.html#16\">GB\\CP\\Blog\\Comment::getUuid<\/a>"],[0,1,"<a href=\"Comment.php.html#21\">GB\\CP\\Blog\\Comment::setUuid<\/a>"],[0,1,"<a href=\"Comment.php.html#26\">GB\\CP\\Blog\\Comment::getUser<\/a>"],[0,1,"<a href=\"Comment.php.html#31\">GB\\CP\\Blog\\Comment::getPost<\/a>"],[0,1,"<a href=\"Comment.php.html#36\">GB\\CP\\Blog\\Comment::getText<\/a>"],[0,1,"<a href=\"Comment.php.html#41\">GB\\CP\\Blog\\Comment::setText<\/a>"],[0,1,"<a href=\"Comment.php.html#46\">GB\\CP\\Blog\\Comment::__toString<\/a>"],[100,1,"<a href=\"Post.php.html#9\">GB\\CP\\Blog\\Post::__construct<\/a>"],[100,1,"<a href=\"Post.php.html#18\">GB\\CP\\Blog\\Post::getUser<\/a>"],[100,1,"<a href=\"Post.php.html#23\">GB\\CP\\Blog\\Post::getUuid<\/a>"],[0,1,"<a href=\"Post.php.html#28\">GB\\CP\\Blog\\Post::setUuid<\/a>"],[100,1,"<a href=\"Post.php.html#33\">GB\\CP\\Blog\\Post::getTitle<\/a>"],[0,1,"<a href=\"Post.php.html#38\">GB\\CP\\Blog\\Post::setTitle<\/a>"],[100,1,"<a href=\"Post.php.html#43\">GB\\CP\\Blog\\Post::getText<\/a>"],[0,1,"<a href=\"Post.php.html#48\">GB\\CP\\Blog\\Post::setText<\/a>"],[0,1,"<a href=\"Post.php.html#53\">GB\\CP\\Blog\\Post::__toString<\/a>"],[0,1,"<a href=\"Repositories\/CommentsRepository\/SqliteCommentsRepository.php.html#14\">GB\\CP\\Blog\\Repositories\\CommentsRepository\\SqliteCommentsRepository::__construct<\/a>"],[0,1,"<a href=\"Repositories\/CommentsRepository\/SqliteCommentsRepository.php.html#19\">GB\\CP\\Blog\\Repositories\\CommentsRepository\\SqliteCommentsRepository::save<\/a>"],[0,1,"<a href=\"Repositories\/CommentsRepository\/SqliteCommentsRepository.php.html#29\">GB\\CP\\Blog\\Repositories\\CommentsRepository\\SqliteCommentsRepository::get<\/a>"],[100,1,"<a href=\"Repositories\/PostsRepository\/SqlitePostsRepository.php.html#18\">GB\\CP\\Blog\\Repositories\\PostsRepository\\SqlitePostsRepository::__construct<\/a>"],[100,1,"<a href=\"Repositories\/PostsRepository\/SqlitePostsRepository.php.html#23\">GB\\CP\\Blog\\Repositories\\PostsRepository\\SqlitePostsRepository::save<\/a>"],[100,1,"<a href=\"Repositories\/PostsRepository\/SqlitePostsRepository.php.html#42\">GB\\CP\\Blog\\Repositories\\PostsRepository\\SqlitePostsRepository::get<\/a>"],[100,2,"<a href=\"Repositories\/PostsRepository\/SqlitePostsRepository.php.html#59\">GB\\CP\\Blog\\Repositories\\PostsRepository\\SqlitePostsRepository::getPost<\/a>"],[0,1,"<a href=\"Repositories\/UsersRepository\/DummyUsersRepository.php.html#11\">GB\\CP\\Blog\\Repositories\\UsersRepository\\DummyUsersRepository::save<\/a>"],[0,1,"<a href=\"Repositories\/UsersRepository\/DummyUsersRepository.php.html#19\">GB\\CP\\Blog\\Repositories\\UsersRepository\\DummyUsersRepository::get<\/a>"],[100,1,"<a href=\"Repositories\/UsersRepository\/DummyUsersRepository.php.html#24\">GB\\CP\\Blog\\Repositories\\UsersRepository\\DummyUsersRepository::getByUsername<\/a>"],[100,1,"<a href=\"Repositories\/UsersRepository\/SqliteUsersRepository.php.html#16\">GB\\CP\\Blog\\Repositories\\UsersRepository\\SqliteUsersRepository::__construct<\/a>"],[100,1,"<a href=\"Repositories\/UsersRepository\/SqliteUsersRepository.php.html#20\">GB\\CP\\Blog\\Repositories\\UsersRepository\\SqliteUsersRepository::save<\/a>"],[100,1,"<a href=\"Repositories\/UsersRepository\/SqliteUsersRepository.php.html#39\">GB\\CP\\Blog\\Repositories\\UsersRepository\\SqliteUsersRepository::get<\/a>"],[100,1,"<a href=\"Repositories\/UsersRepository\/SqliteUsersRepository.php.html#54\">GB\\CP\\Blog\\Repositories\\UsersRepository\\SqliteUsersRepository::getByUsername<\/a>"],[100,2,"<a href=\"Repositories\/UsersRepository\/SqliteUsersRepository.php.html#68\">GB\\CP\\Blog\\Repositories\\UsersRepository\\SqliteUsersRepository::getUser<\/a>"],[50,2,"<a href=\"UUID.php.html#10\">GB\\CP\\Blog\\UUID::__construct<\/a>"],[100,1,"<a href=\"UUID.php.html#25\">GB\\CP\\Blog\\UUID::random<\/a>"],[100,1,"<a href=\"UUID.php.html#30\">GB\\CP\\Blog\\UUID::__toString<\/a>"],[100,1,"<a href=\"User.php.html#14\">GB\\CP\\Blog\\User::__construct<\/a>"],[100,1,"<a href=\"User.php.html#26\">GB\\CP\\Blog\\User::getUUID<\/a>"],[0,1,"<a href=\"User.php.html#31\">GB\\CP\\Blog\\User::setUUID<\/a>"],[100,1,"<a href=\"User.php.html#36\">GB\\CP\\Blog\\User::getUsername<\/a>"],[0,1,"<a href=\"User.php.html#41\">GB\\CP\\Blog\\User::setUsername<\/a>"],[100,1,"<a href=\"User.php.html#46\">GB\\CP\\Blog\\User::getFirstName<\/a>"],[0,1,"<a href=\"User.php.html#51\">GB\\CP\\Blog\\User::setFirstName<\/a>"],[100,1,"<a href=\"User.php.html#56\">GB\\CP\\Blog\\User::getLastName<\/a>"],[0,1,"<a href=\"User.php.html#61\">GB\\CP\\Blog\\User::setLastName<\/a>"],[0,1,"<a href=\"User.php.html#66\">GB\\CP\\Blog\\User::__toString<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
