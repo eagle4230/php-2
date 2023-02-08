@@ -1,7 +1,9 @@
 <?php
 
+use GB\CP\Blog\Repositories\CommentsRepository\SqliteCommentsRepository;
 use GB\CP\Blog\Repositories\PostsRepository\SqlitePostsRepository;
 use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
+use GB\CP\Http\Actions\Comments\CreateComment;
 use GB\CP\Http\Actions\Posts\CreatePost;
 use GB\CP\Http\Actions\Posts\DeletePost;
 use GB\CP\Http\Actions\Posts\FindByUuid;
@@ -74,6 +76,18 @@ $routes = [
                 new PDO('sqlite:' . __DIR__ . '/blog.sqlite')
             )
         ),
+
+        '/posts/comment' => new CreateComment(
+            new SqliteUsersRepository(
+                new PDO('sqlite:' . __DIR__ . '/blog.sqlite')
+            ),
+            new SqlitePostsRepository(
+                new PDO('sqlite:' . __DIR__ . '/blog.sqlite')
+            ),
+            new SqliteCommentsRepository(
+                new PDO('sqlite:' . __DIR__ . '/blog.sqlite')
+            )
+        )
     ],
     'DELETE' => [
         '/posts' => new DeletePost(
