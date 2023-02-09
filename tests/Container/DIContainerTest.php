@@ -94,4 +94,29 @@ class DIContainerTest extends TestCase
         // тот же самый объект
         $this->assertSame(42, $object->value());
     }
+
+    //TODO
+    /*
+    public function testItResolvesClassWithDependencies(): void
+    {
+        // Создаём объект контейнера
+        $container = new DIContainer();
+
+        // Устанавливаем правило получения
+        // объекта типа SomeClassWithParameter
+        $container->bind(
+            SomeClassWithParameter::class,
+            new SomeClassWithParameter(42)
+        );
+
+        // Пытаемся получить объект типа ClassDependingOnAnother
+        $object = $container->get(ClassDependingOnAnother::class);
+
+        // Проверяем, что контейнер вернул
+        // объект нужного нам типа
+        $this->assertInstanceOf(
+            ClassDependingOnAnother::class,
+            $object
+        );
+    }*/
 }

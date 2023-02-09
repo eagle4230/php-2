@@ -2,3 +2,14 @@
 composer.phar
 /vendor/
 composer.lock
+
+##### JetBrains
+./idea/
+# Editor-based Rest Client
+.idea/httpRequests
+
+# Sensitive or high-churn files
+.idea/dataSources
+
+# User-specific stuff
+.idea/workspace.xml

@@ -3,6 +3,7 @@
 namespace GB\CP\Blog\Container;
 
 use GB\CP\Blog\Exceptions\NotFoundException;
+use ReflectionClass;
 
 class DIContainer
 {
@@ -33,7 +34,34 @@ class DIContainer
             throw new NotFoundException("Cannot resolve type: $type");
         }
 
-        return new $type();
-    }
+        // Создаём объект рефлексии для запрашиваемого класса
+        $reflectionClass = new ReflectionClass($type);
 
+        // Исследуем конструктор класса
+        $constructor = $reflectionClass->getConstructor();
+
+        // Если конструктора нет -
+        // просто создаём объект нужного класса
+        if (null === $constructor) {
+            return new $type();
+        }
+
+        // В этот массив мы будем собирать
+        // объекты зависимостей класса
+        $parameters = [];
+
+        // Проходим по всем параметрам конструктора
+        // (зависимостям класса)
+        foreach ($constructor->getParameters() as $parameter) {
+            // Узнаем тип параметра конструктора
+            // (тип зависимости)
+            $parameterType = $parameter->getType()->getName();
+        }
+        // Получаем объект зависимости из контейнера
+        $parameters[] = $this->get($parameterType);
+
+        // Создаём объект нужного нам типа
+        // с параметрами
+        return new $type(...$parameters);
+    }
 }
