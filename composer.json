@@ -7,6 +7,11 @@
       "GB\\CP\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "GB\\Blog\\UnitTests\\": "tests/"
+    }
+  },
   "authors": [
     {
       "name": "Artem",

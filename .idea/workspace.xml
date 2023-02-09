@@ -5,21 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b41d1d5-e682-4be2-a9ef-0113044cb896" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Blog/Exceptions/CommentNotFoundException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Actions/Comments/CreateComment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-02-07T120732.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-02-07T120932.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-02-07T121007.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-02-07T121038.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-02-07T121102.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-02-07T123730.200.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-02-07T123852.200.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Blog/Container/DIContainer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Blog/Exceptions/NotFoundException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Container/DIContainerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Container/SomeClassWithParameter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Container/SomeClassWithoutDependencies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/KP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/KP.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/blog.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/http.php" beforeDir="false" afterPath="$PROJECT_DIR$/http.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Blog/Repositories/CommentsRepository/CommentsRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Blog/Repositories/CommentsRepository/CommentsRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Blog/Repositories/CommentsRepository/SqliteCommentsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Blog/Repositories/CommentsRepository/SqliteCommentsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +37,7 @@
     </servers>
   </component>
   <component name="PhpWebServerValidation" path_to_validation_script="$PROJECT_DIR$" selected_validation_type="LOCAL" web_path_to_validation_script="http://127.0.0.1/" />
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.2">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
@@ -112,41 +106,44 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="HTTP Request.rest-api_3 | #1">
-    <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1" runType="Run single request">
+  <component name="RunManager" selected="PHPUnit.DIContainerTest.testItReturnsPredefinedObject">
+    <configuration name="DIContainerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="GB\Blog\UnitTests\Container\DIContainerTest" file="$PROJECT_DIR$/tests/Container/DIContainerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="rest-api_1 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_1.http" requestIdentifier="#1" runType="Run single request">
+    <configuration name="DIContainerTest.testItResolvesClassByContract" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="GB\Blog\UnitTests\Container\DIContainerTest" file="$PROJECT_DIR$/tests/Container/DIContainerTest.php" method="testItResolvesClassByContract" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="rest-api_3 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_3.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="FindByUsernameActionTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+    <configuration name="DIContainerTest.testItResolvesClassWithoutDependencies" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" singleton="false" temporary="true">
       <CommandLine>
         <PhpTestInterpreterSettings>
           <option name="interpreterName" value="PHP 8.2" />
         </PhpTestInterpreterSettings>
       </CommandLine>
-      <TestRunner class="Actions\FindByUsernameActionTest" file="$PROJECT_DIR$/tests/Actions/TODO.php" scope="Class" />
+      <TestRunner class="GB\Blog\UnitTests\Container\DIContainerTest" file="$PROJECT_DIR$/tests/Container/DIContainerTest.php" method="testItResolvesClassWithoutDependencies" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="FindByUsernameActionTest.testItReturnsErrorResponseIfNoUsernameProvided" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+    <configuration name="DIContainerTest.testItReturnsPredefinedObject" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="GB\Blog\UnitTests\Container\DIContainerTest" file="$PROJECT_DIR$/tests/Container/DIContainerTest.php" method="testItReturnsPredefinedObject" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="DIContainerTest.testItThrowsAnExceptionIfCannotResolveType (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <CommandLine>
         <PhpTestInterpreterSettings>
           <option name="interpreterName" value="PHP 8.2" />
         </PhpTestInterpreterSettings>
       </CommandLine>
-      <TestRunner class="Actions\FindByUsernameActionTest" file="$PROJECT_DIR$/tests/Actions/TODO.php" method="testItReturnsErrorResponseIfNoUsernameProvided" scope="Method" />
+      <TestRunner class="GB\Blog\UnitTests\Container\DIContainerTest" file="$PROJECT_DIR$/tests/Container/DIContainerTest.php" method="testItThrowsAnExceptionIfCannotResolveType" scope="Method" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.rest-api_3 | #1" />
-        <item itemvalue="HTTP Request.rest-api | #1" />
-        <item itemvalue="HTTP Request.rest-api_1 | #1" />
-        <item itemvalue="PHPUnit.FindByUsernameActionTest.testItReturnsErrorResponseIfNoUsernameProvided" />
-        <item itemvalue="PHPUnit.FindByUsernameActionTest" />
+        <item itemvalue="PHPUnit.DIContainerTest.testItReturnsPredefinedObject" />
+        <item itemvalue="PHPUnit.DIContainerTest.testItResolvesClassByContract" />
+        <item itemvalue="PHPUnit.DIContainerTest" />
+        <item itemvalue="PHPUnit.DIContainerTest.testItResolvesClassWithoutDependencies" />
+        <item itemvalue="PHPUnit.DIContainerTest.testItThrowsAnExceptionIfCannotResolveType (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -167,11 +164,35 @@
       <workItem from="1675770844182" duration="7875000" />
       <workItem from="1675781147121" duration="13067000" />
       <workItem from="1675882212215" duration="3785000" />
+      <workItem from="1675964601760" duration="1903000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="les-4" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
