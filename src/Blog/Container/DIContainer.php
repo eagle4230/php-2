@@ -56,9 +56,10 @@ class DIContainer
             // Узнаем тип параметра конструктора
             // (тип зависимости)
             $parameterType = $parameter->getType()->getName();
+
+            // Получаем объект зависимости из контейнера
+            $parameters[] = $this->get($parameterType);
         }
-        // Получаем объект зависимости из контейнера
-        $parameters[] = $this->get($parameterType);
 
         // Создаём объект нужного нам типа
         // с параметрами

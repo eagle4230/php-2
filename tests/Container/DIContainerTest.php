@@ -95,8 +95,6 @@ class DIContainerTest extends TestCase
         $this->assertSame(42, $object->value());
     }
 
-    //TODO
-    /*
     public function testItResolvesClassWithDependencies(): void
     {
         // Создаём объект контейнера
@@ -118,5 +116,5 @@ class DIContainerTest extends TestCase
             ClassDependingOnAnother::class,
             $object
         );
-    }*/
+    }
 }
