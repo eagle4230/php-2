@@ -1,0 +1,15 @@
+<br />
+<font size='1'><table class='xdebug-error xe-warning' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Warning: Undefined variable $uuid in /home/eagle/prj/GeekBrains/8_PHP-2/KP/src/Http/Actions/Posts/FindByUuid.php on line <i>36</i></th></tr>
+<tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+<tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+<tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0004</td><td bgcolor='#eeeeec' align='right'>443352</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='/home/eagle/prj/GeekBrains/8_PHP-2/KP/http.php' bgcolor='#eeeeec'>.../http.php<b>: </b>0</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>2</td><td bgcolor='#eeeeec' align='center'>0.0140</td><td bgcolor='#eeeeec' align='right'>1263480</td><td bgcolor='#eeeeec'>GB\CP\Http\Actions\Posts\FindByUuid->handle( <span>$request = </span><span>class GB\CP\Http\Request {private array $get = [&#39;uuid&#39; =&gt; &#39;d047a5b9-66a7-4a60-8ac3-ee8776702666&#39;]; private array $server = [
+&#39;DOCUMENT_ROOT&#39; =&gt; &#39;/home/eagle/prj/GeekBrains/8_PHP-2/KP&#39;, &#39;REMOTE_ADDR&#39; =&gt; &#39;:: 1&#39;, &#39;REMOTE_PORT&#39; =&gt; &#39;54808&#39;, &#39;SERVER_SOFTWARE&#39; =&gt; &#39;PHP 8.2.1 Development Server&#39;, &#39;SERVER_PROTOCOL&#39; =&gt; &#39;HTTP/1.1&#39;, &#39;SERVER_NAME&#39; =&gt; &#39;localhost&#39;, &#39;SERVER_PORT&#39; =&gt; &#39;8000&#39;, &#39;REQUEST_URI&#39; =&gt; &#39;/posts/show?uuid=d047a5b9-66a7-4a60-8ac3-ee8776702666&#39;, &#39;REQUEST_METHOD&#39; =&gt; &#39;GET&#39;, &#39;SCRIPT_NAME&#39; =&gt; &#39;/posts/show&#39;, &#39;SCRIPT_FILENAME&#39; =&gt; &#39;http.php&#39;, &#39;PHP_SELF&#39; =&gt; &#39;/posts/show&#39;, &#39;QUERY_STRING&#39; =&gt; &#39;uuid=d047a5b9-66a7-4a60-8ac3-ee8776702666&#39;, &#39;HTTP_HOST&#39; =&gt; &#39;localhost: 8000&#39;, &#39;HTTP_CONNECTION&#39; =&gt; &#39;Keep-Alive&#39;, &#39;HTTP_USER_AGENT&#39; =&gt; &#39;Apache-HttpClient/4.5.13 (Java/17.0.5)&#39;, &#39;HTTP_ACCEPT_ENCODING&#39; =&gt; &#39;br, deflate, gzip, x-gzip&#39;, &#39;REQUEST_TIME_FLOAT&#39; =&gt; 1675763701.9769, &#39;REQUEST_TIME&#39; =&gt; 1675763701
+]; private string $body = &#39;&#39;}</span> )</td><td title='/home/eagle/prj/GeekBrains/8_PHP-2/KP/http.php' bgcolor='#eeeeec'>.../http.php<b>: </b>99</td></tr>
+</table></font>
+{
+"success": true, "data": {
+":uuid": null
+}
+}
