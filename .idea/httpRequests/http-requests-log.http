@@ -1,3 +1,54 @@
+POST http://localhost:8000/like/create
+Content-Length: 110
+Content-Type: */*; charset=UTF-8
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: XDEBUG_SESSION=start
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+"post_uuid": "f3dfd3f7-9c10-44dd-b5a9-6661a130cfa9",
+"author_uuid": "02478c9b-4021-41d9-b7cb-f3f47ae6cdba"
+}
+
+<> 2023-02-10T171150.200.json
+
+###
+
+POST http://localhost:8000/like/create
+Content-Length: 110
+Content-Type: */*; charset=UTF-8
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: XDEBUG_SESSION=start
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+"post_uuid": "f4dfd3f7-9c10-44dd-b5a9-6661a130cfa9",
+"author_uuid": "02478c9b-4021-41d9-b7cb-f3f47ae6cdba"
+}
+
+<> 2023-02-10T165828.200.json
+
+###
+
+POST http://localhost:8000/like/create
+Content-Length: 110
+Content-Type: */*; charset=UTF-8
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: XDEBUG_SESSION=start
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+"post_uuid": "f4dfd3f7-9c10-44dd-b5a9-6661a130cfa9",
+"author_uuid": "02478c9b-4021-41d9-b7cb-f3f47ae6cdba"
+}
+
+<> 2023-02-10T165808.200.json
+
+###
+
 POST http://localhost:8000/posts/comment
 Content-Length: 151
 Content-Type: */*; charset=UTF-8
@@ -540,33 +591,6 @@ User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
 <> 2023-02-07T133930.200.json
-
-###
-
-GET http://localhost:8000/posts/show?uuid=d047a5b9-66a7-4a60-8ac3-ee8776702666
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-02-07T133823.200.json
-
-###
-
-GET http://localhost:8000/posts/show?uuid=d047a5b9-66a7-4a60-8ac3-ee8776702666
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-02-07T125808.200.json
-
-###
-
-GET http://localhost:8000/posts/show?uuid=d047a5b9-66a7-4a60-8ac3-ee8776702666
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-02-07T125502.200.json
 
 ###
 

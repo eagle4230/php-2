@@ -1314,62 +1314,58 @@
       <Position>1</Position>
     </argument>
     <table id="482" parent="166" name="comments"/>
-    <table id="483" parent="166" name="posts"/>
-    <table id="484" parent="166" name="sqlite_master">
+    <table id="483" parent="166" name="likes"/>
+    <table id="484" parent="166" name="posts"/>
+    <table id="485" parent="166" name="sqlite_master">
       <System>1</System>
     </table>
-    <table id="485" parent="166" name="users"/>
-    <column id="486" parent="482" name="uuid">
+    <table id="486" parent="166" name="users"/>
+    <column id="487" parent="482" name="uuid">
       <DasType>TEXT|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="487" parent="482" name="post_uuid">
+    <column id="488" parent="482" name="post_uuid">
       <DasType>TEXT|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="488" parent="482" name="author_uuid">
+    <column id="489" parent="482" name="author_uuid">
       <DasType>TEXT|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="489" parent="482" name="text">
+    <column id="490" parent="482" name="text">
       <DasType>TEXT|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <index id="490" parent="482" name="sqlite_autoindex_comments_1">
+    <index id="491" parent="482" name="sqlite_autoindex_comments_1">
       <ColNames>uuid</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="491" parent="482" name="uuid_primary_key">
+    <key id="492" parent="482" name="uuid_primary_key">
       <ColNames>uuid</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_comments_1</UnderlyingIndexName>
     </key>
-    <column id="492" parent="483" name="uuid">
+    <column id="493" parent="483" name="uuid">
       <DasType>TEXT|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="493" parent="483" name="author_uuid">
+    <column id="494" parent="483" name="author_uuid">
       <DasType>TEXT|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="494" parent="483" name="title">
+    <column id="495" parent="483" name="post_uuid">
       <DasType>TEXT|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="495" parent="483" name="text">
-      <DasType>TEXT|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <index id="496" parent="483" name="sqlite_autoindex_posts_1">
+    <index id="496" parent="483" name="sqlite_autoindex_likes_1">
       <ColNames>uuid</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
@@ -1377,64 +1373,94 @@
     <key id="497" parent="483" name="uuid_primary_key">
       <ColNames>uuid</ColNames>
       <Primary>1</Primary>
-      <UnderlyingIndexName>sqlite_autoindex_posts_1</UnderlyingIndexName>
+      <UnderlyingIndexName>sqlite_autoindex_likes_1</UnderlyingIndexName>
     </key>
-    <column id="498" parent="484" name="type">
-      <DasType>TEXT|0s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="499" parent="484" name="name">
-      <DasType>TEXT|0s</DasType>
-      <Position>2</Position>
-    </column>
-    <column id="500" parent="484" name="tbl_name">
-      <DasType>TEXT|0s</DasType>
-      <Position>3</Position>
-    </column>
-    <column id="501" parent="484" name="rootpage">
-      <DasType>INT|0s</DasType>
-      <Position>4</Position>
-    </column>
-    <column id="502" parent="484" name="sql">
-      <DasType>TEXT|0s</DasType>
-      <Position>5</Position>
-    </column>
-    <column id="503" parent="485" name="uuid">
+    <column id="498" parent="484" name="uuid">
       <DasType>TEXT|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="504" parent="485" name="username">
+    <column id="499" parent="484" name="author_uuid">
       <DasType>TEXT|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="505" parent="485" name="first_name">
+    <column id="500" parent="484" name="title">
       <DasType>TEXT|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="506" parent="485" name="last_name">
+    <column id="501" parent="484" name="text">
       <DasType>TEXT|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <index id="507" parent="485" name="sqlite_autoindex_users_1">
+    <index id="502" parent="484" name="sqlite_autoindex_posts_1">
       <ColNames>uuid</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <index id="508" parent="485" name="sqlite_autoindex_users_2">
+    <key id="503" parent="484" name="uuid_primary_key">
+      <ColNames>uuid</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_posts_1</UnderlyingIndexName>
+    </key>
+    <column id="504" parent="485" name="type">
+      <DasType>TEXT|0s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="505" parent="485" name="name">
+      <DasType>TEXT|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="506" parent="485" name="tbl_name">
+      <DasType>TEXT|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="507" parent="485" name="rootpage">
+      <DasType>INT|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="508" parent="485" name="sql">
+      <DasType>TEXT|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="509" parent="486" name="uuid">
+      <DasType>TEXT|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="510" parent="486" name="username">
+      <DasType>TEXT|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="511" parent="486" name="first_name">
+      <DasType>TEXT|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="512" parent="486" name="last_name">
+      <DasType>TEXT|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <index id="513" parent="486" name="sqlite_autoindex_users_1">
+      <ColNames>uuid</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Unique>1</Unique>
+    </index>
+    <index id="514" parent="486" name="sqlite_autoindex_users_2">
       <ColNames>username</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="509" parent="485" name="uuid_primary_key">
+    <key id="515" parent="486" name="uuid_primary_key">
       <ColNames>uuid</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_users_1</UnderlyingIndexName>
     </key>
-    <key id="510" parent="485" name="username_unique_key">
+    <key id="516" parent="486" name="username_unique_key">
       <ColNames>username</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_users_2</UnderlyingIndexName>
     </key>

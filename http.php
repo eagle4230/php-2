@@ -5,6 +5,7 @@ use GB\CP\Blog\Repositories\CommentsRepository\SqliteCommentsRepository;
 use GB\CP\Blog\Repositories\PostsRepository\SqlitePostsRepository;
 use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
 use GB\CP\Http\Actions\Comments\CreateComment;
+use GB\CP\Http\Actions\Likes\CreateLikePost;
 use GB\CP\Http\Actions\Posts\CreatePost;
 use GB\CP\Http\Actions\Posts\DeletePost;
 use GB\CP\Http\Actions\Posts\FindByUuid;
@@ -49,6 +50,7 @@ $routes = [
         '/users/create' => CreateUser::class,
         '/posts/create' => CreatePost::class,
         '/posts/comment' => CreateComment::class,
+        '/like/create' => CreateLikePost::class
     ],
     'DELETE' => [
         '/posts' => DeletePost::class,

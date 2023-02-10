@@ -3,6 +3,8 @@
 use GB\CP\Blog\Container\DIContainer;
 use GB\CP\Blog\Repositories\CommentsRepository\CommentsRepositoryInterface;
 use GB\CP\Blog\Repositories\CommentsRepository\SqliteCommentsRepository;
+use GB\CP\Blog\Repositories\LikesRepository\LikesRepositoryInterface;
+use GB\CP\Blog\Repositories\LikesRepository\SqliteLikesRepository;
 use GB\CP\Blog\Repositories\PostsRepository\PostsRepositoryInterface;
 use GB\CP\Blog\Repositories\PostsRepository\SqlitePostsRepository;
 use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
@@ -36,6 +38,12 @@ $container->bind(
 $container->bind(
     CommentsRepositoryInterface::class,
     SqliteCommentsRepository::class
+);
+
+// 5. репозиторий лайков
+$container->bind(
+    LikesRepositoryInterface::class,
+    SqliteLikesRepository::class
 );
 
 // Возвращаем объект контейнера
