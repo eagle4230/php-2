@@ -3,9 +3,12 @@
 namespace GB\CP\Blog\Container;
 
 use GB\CP\Blog\Exceptions\NotFoundException;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use ReflectionClass;
 
-class DIContainer
+class DIContainer implements ContainerInterface
 {
     // Массив правил создания объектов
     private array $resolvers = [];
@@ -16,6 +19,11 @@ class DIContainer
         $this->resolvers[$type] = $resolver;
     }
 
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     */
     public function get(string $type): object
     {
         if (array_key_exists($type, $this->resolvers)) {
@@ -64,5 +72,19 @@ class DIContainer
         // Создаём объект нужного нам типа
         // с параметрами
         return new $type(...$parameters);
+    }
+
+    public function has(string $type): bool
+    {
+        // Здесь мы просто пытаемся создать
+        // объект требуемого типа
+        try {
+            $this->get($type);
+        } catch (NotFoundException $e) {
+            // Возвращаем false, если объект не создан...
+            return false;
+        }
+        // и true, если создан
+        return true;
     }
 }
