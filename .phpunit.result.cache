@@ -1,1 +1,0 @@
-{"version":1,"defects":{"GB\\Blog\\UnitTests\\Container\\DIContainerTest::testItResolvesClassWithDependencies":4},"times":{"GB\\Blog\\UnitTests\\Container\\DIContainerTest::testItResolvesClassWithDependencies":0.006,"GB\\Blog\\UnitTests\\Container\\DIContainerTest::testItReturnsPredefinedObject":0.006}}

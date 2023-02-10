@@ -1,6 +1,8 @@
 <?php
 
 use GB\CP\Blog\Container\DIContainer;
+use GB\CP\Blog\Repositories\CommentsRepository\CommentsRepositoryInterface;
+use GB\CP\Blog\Repositories\CommentsRepository\SqliteCommentsRepository;
 use GB\CP\Blog\Repositories\PostsRepository\PostsRepositoryInterface;
 use GB\CP\Blog\Repositories\PostsRepository\SqlitePostsRepository;
 use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
@@ -28,6 +30,12 @@ $container->bind(
 $container->bind(
     UsersRepositoryInterface::class,
     SqliteUsersRepository::class
+);
+
+// 4. репозиторий комментариев
+$container->bind(
+    CommentsRepositoryInterface::class,
+    SqliteCommentsRepository::class
 );
 
 // Возвращаем объект контейнера

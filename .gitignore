@@ -5,6 +5,7 @@ composer.lock
 
 ##### JetBrains
 .idea/
+/.idea/
 # Editor-based Rest Client
 .idea/httpRequests
 

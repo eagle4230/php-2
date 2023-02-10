@@ -5,21 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b41d1d5-e682-4be2-a9ef-0113044cb896" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bootstrap.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-02-07T124500.200.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-02-07T124914.200.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-02-07T125014.200.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-02-07T125114.200.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-02-07T125229.200.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-02-07T125326.200.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/blog.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/blog.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli.php" beforeDir="false" afterPath="$PROJECT_DIR$/cli.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/http.php" beforeDir="false" afterPath="$PROJECT_DIR$/http.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Blog/Container/DIContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Blog/Container/DIContainer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Container/ClassDependingOnAnother.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Container/ClassDependingOnAnother.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Container/DIContainerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Container/DIContainerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,12 +105,11 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="PHPUnit.DIContainerTest.testItResolvesClassWithDependencies">
+  <component name="RunManager" selected="HTTP Request.rest-api_6 | #1">
     <configuration name="rest-api_5 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_5.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="DIContainerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="GB\Blog\UnitTests\Container\DIContainerTest" file="$PROJECT_DIR$/tests/Container/DIContainerTest.php" scope="Class" />
+    <configuration name="rest-api_6 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_6.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="DIContainerTest.testItResolvesClassByContract" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -134,11 +126,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.DIContainerTest.testItResolvesClassWithDependencies" />
+        <item itemvalue="HTTP Request.rest-api_6 | #1" />
         <item itemvalue="HTTP Request.rest-api_5 | #1" />
+        <item itemvalue="PHPUnit.DIContainerTest.testItResolvesClassWithDependencies" />
         <item itemvalue="PHPUnit.DIContainerTest.testItReturnsPredefinedObject" />
         <item itemvalue="PHPUnit.DIContainerTest.testItResolvesClassByContract" />
-        <item itemvalue="PHPUnit.DIContainerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -160,7 +152,8 @@
       <workItem from="1675781147121" duration="13067000" />
       <workItem from="1675882212215" duration="3785000" />
       <workItem from="1675964601760" duration="6727000" />
-      <workItem from="1675974050290" duration="4579000" />
+      <workItem from="1675974050290" duration="4767000" />
+      <workItem from="1676020239376" duration="596000" />
     </task>
     <servers />
   </component>
