@@ -14,12 +14,14 @@ use GB\CP\Http\ErrorResponse;
 use GB\CP\Http\Request;
 use GB\CP\Http\Response;
 use GB\CP\Http\SuccessfulResponse;
+use Psr\Log\LoggerInterface;
 
 class CreatePost implements ActionInterface
 {
     public function __construct(
         private UsersRepositoryInterface $usersRepository,
-        private PostsRepositoryInterface $postsRepository
+        private PostsRepositoryInterface $postsRepository,
+        private LoggerInterface $logger,
     )
     {
     }
@@ -51,6 +53,8 @@ class CreatePost implements ActionInterface
         }
 
         $this->postsRepository->save($post);
+
+        $this->logger->info("Post created: $newPostUuid");
 
         return new SuccessfulResponse([
             'uuid' => (string)$newPostUuid,
