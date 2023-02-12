@@ -28,12 +28,19 @@ $container->bind(
 // для логирования
 $container->bind(
     LoggerInterface::class,
-    (new Logger('blog')) // blog – это (произвольное) имя логгера
-    // Настраиваем логгер так,
-    // чтобы записи сохранялись в файл
-    ->pushHandler(new StreamHandler(
-        __DIR__ . '/logs/blog.log' // Путь до этого файла
-    ))
+    (new Logger('blog'))
+        ->pushHandler(new StreamHandler(
+            __DIR__ . '/logs/blog.log'
+        ))
+        // Добавили новый обработчик:
+        ->pushHandler(new StreamHandler(
+        // записывать в файл "blog.error.log"
+            __DIR__ . '/logs/blog.error.log',
+        // события с уровнем ERROR и выше,
+            level: Logger::ERROR,
+        // при этом событие не должно "всплывать"
+            bubble: false,
+        ))
 );
 
 // 2. репозиторий статей
