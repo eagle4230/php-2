@@ -35,8 +35,13 @@ class CreateUserCommand
 
       // Проверяем, существует ли пользователь в репозитории
       if ($this->userExists($username)) {
-          // Бросаем исключение, если пользователь уже существует
-          throw new CommandException("User already exists: $username");
+            // Логируем сообщение с уровнем WARNING
+            $this->logger->warning("User already exists: $username");
+            // Вместо выбрасывания исключения просто выходим из функции
+            return;
+            // Бросаем исключение, если пользователь уже существует
+            // закоментил после добавления лога
+            //throw new CommandException("User already exists: $username");
       }
 
       $uuid = UUID::random();
