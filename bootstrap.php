@@ -1,5 +1,6 @@
 <?php
 
+use Dotenv\Dotenv;
 use GB\CP\Blog\Container\DIContainer;
 use GB\CP\Blog\Repositories\CommentsRepository\CommentsRepositoryInterface;
 use GB\CP\Blog\Repositories\CommentsRepository\SqliteCommentsRepository;
@@ -17,7 +18,7 @@ use Psr\Log\LoggerInterface;
 require_once __DIR__ . '/vendor/autoload.php';
 
 // Загружаем переменные окружения из файла .env
-\Dotenv\Dotenv::createImmutable(__DIR__)->safeLoad();
+Dotenv::createImmutable(__DIR__)->safeLoad();
 
 // Создаём объект контейнера ..
 $container = new DIContainer();
@@ -25,7 +26,9 @@ $container = new DIContainer();
 // 1. подключение к БД
 $container->bind(
     PDO::class,
-    new PDO('sqlite:' . __DIR__ . '/blog.sqlite')
+    // Берём путь до файла базы данных SQLite
+    // из переменной окружения SQLITE_DB_PATH
+    new PDO('sqlite:' . __DIR__ . '/' . $_ENV['SQLITE_DB_PATH'])
 );
 
 // для логирования

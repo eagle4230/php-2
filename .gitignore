@@ -15,6 +15,3 @@ composer.lock
 
 ##### Test
 .phpunit.result.cache
-
-##### Conf
-.env
