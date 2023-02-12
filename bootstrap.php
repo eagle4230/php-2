@@ -16,6 +16,9 @@ use Psr\Log\LoggerInterface;
 // Подключаем автозагрузчик Composer
 require_once __DIR__ . '/vendor/autoload.php';
 
+// Загружаем переменные окружения из файла .env
+\Dotenv\Dotenv::createImmutable(__DIR__)->safeLoad();
+
 // Создаём объект контейнера ..
 $container = new DIContainer();
 
