@@ -1,0 +1,32 @@
+{
+  "name": "gb/cp",
+  "description": "Course project",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "GB\\CP\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "GB\\Blog\\UnitTests\\": "tests/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Artem",
+      "email": "armrt@mail.ru"
+    }
+  ],
+  "require": {
+    "fakerphp/faker": "^1.21",
+    "ext-pdo": "*",
+    "symfony/polyfill-uuid": "^1.27",
+    "ext-mbstring": "*",
+    "psr/container": "^2.0"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "phpunit/phpunit": "^9.5"
+  }
+}
