@@ -9,6 +9,9 @@ use GB\CP\Blog\Repositories\PostsRepository\PostsRepositoryInterface;
 use GB\CP\Blog\Repositories\PostsRepository\SqlitePostsRepository;
 use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
 use GB\CP\Blog\Repositories\UsersRepository\UsersRepositoryInterface;
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
+use Psr\Log\LoggerInterface;
 
 // Подключаем автозагрузчик Composer
 require_once __DIR__ . '/vendor/autoload.php';
@@ -20,6 +23,17 @@ $container = new DIContainer();
 $container->bind(
     PDO::class,
     new PDO('sqlite:' . __DIR__ . '/blog.sqlite')
+);
+
+// для логирования
+$container->bind(
+    LoggerInterface::class,
+    (new Logger('blog')) // blog – это (произвольное) имя логгера
+    // Настраиваем логгер так,
+    // чтобы записи сохранялись в файл
+    ->pushHandler(new StreamHandler(
+        __DIR__ . '/logs/blog.log' // Путь до этого файла
+    ))
 );
 
 // 2. репозиторий статей
