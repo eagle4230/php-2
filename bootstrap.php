@@ -31,29 +31,34 @@ $container->bind(
     new PDO('sqlite:' . __DIR__ . '/' . $_ENV['SQLITE_DB_PATH'])
 );
 
+// Выносим объект логгера в переменную
+$logger = (new Logger('blog'));
+// Включаем логирование в файлы,
+// если переменная окружения LOG_TO_FILES
+// содержит значение 'yes'
+if ('yes' === $_ENV['LOG_TO_FILES']) {
+    $logger->pushHandler(new StreamHandler(
+        __DIR__ . '/logs/blog.log'
+    ))
+        ->pushHandler(new StreamHandler(
+            __DIR__ . '/logs/blog.error.log',
+            level: Logger::ERROR,
+            bubble: false,
+        ));
+}
+// Включаем логирование в консоль,
+// если переменная окружения LOG_TO_CONSOLE
+// содержит значение 'yes'
+if ('yes' === $_ENV['LOG_TO_CONSOLE']) {
+    $logger->pushHandler(
+            new StreamHandler("php://stdout")
+    );
+}
+
 // для логирования
 $container->bind(
     LoggerInterface::class,
-    (new Logger('blog'))
-        ->pushHandler(new StreamHandler(
-            __DIR__ . '/logs/blog.log'
-        ))
-        // Добавили новый обработчик:
-        ->pushHandler(new StreamHandler(
-        // записывать в файл "blog.error.log"
-            __DIR__ . '/logs/blog.error.log',
-        // события с уровнем ERROR и выше,
-            level: Logger::ERROR,
-        // при этом событие не должно "всплывать"
-            bubble: false,
-        ))
-        // Добавили ещё один обработчик;
-        // он будет вызываться первым ... т.к. читает с конца
-        ->pushHandler(
-            // .. и вести запись в поток php://stdout,
-            // то есть в консоль
-            new StreamHandler("php://stdout")
-        )
+    $logger
 );
 
 // 2. репозиторий статей
