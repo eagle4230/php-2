@@ -10,6 +10,9 @@ use GB\CP\Blog\Repositories\PostsRepository\PostsRepositoryInterface;
 use GB\CP\Blog\Repositories\PostsRepository\SqlitePostsRepository;
 use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
 use GB\CP\Blog\Repositories\UsersRepository\UsersRepositoryInterface;
+use GB\CP\Http\Auth\IdentificationInterface;
+use GB\CP\Http\Auth\JsonBodyUsernameIdentification;
+use GB\CP\Http\Auth\JsonBodyUuidIdentification;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Psr\Log\LoggerInterface;
@@ -54,6 +57,16 @@ if ('yes' === $_ENV['LOG_TO_CONSOLE']) {
             new StreamHandler("php://stdout")
     );
 }
+
+$container->bind(
+    IdentificationInterface::class,
+    JsonBodyUsernameIdentification::class
+);
+
+$container->bind(
+    IdentificationInterface::class,
+    JsonBodyUsernameIdentification::class
+);
 
 // для логирования
 $container->bind(
