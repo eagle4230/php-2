@@ -11,13 +11,17 @@ use GB\CP\Blog\{Comment,
     UUID};
 use PDO;
 use PDOStatement;
+use Psr\Log\LoggerInterface;
 
 class SqliteCommentsRepository implements CommentsRepositoryInterface
 {
 
   private PDO $connection;
 
-  public function __construct(PDO $connection)
+  public function __construct(
+      PDO $connection,
+      private LoggerInterface $logger
+  )
   {
     $this->connection = $connection;
   }
@@ -35,6 +39,10 @@ class SqliteCommentsRepository implements CommentsRepositoryInterface
         ':author_uuid' => $comment->getUser()->getUUID(),
         ':text' => $comment->getText(),
     ]);
+
+      // Пишем в лог-файл
+      $uuid = $comment->getUuid();
+      $this->logger->info("Comment saved under UUID: $uuid");
   }
 
     /**
@@ -69,10 +77,10 @@ class SqliteCommentsRepository implements CommentsRepositoryInterface
           );
       }
 
-      $userRepository = new SqliteUsersRepository($this->connection);
+      $userRepository = new SqliteUsersRepository($this->connection, $this->logger);
       $user = $userRepository->get(new UUID($result['author_uuid']));
 
-      $postRepository = new SqlitePostsRepository($this->connection);
+      $postRepository = new SqlitePostsRepository($this->connection, $this->logger);
       $post = $postRepository->get(new UUID($result['post_uuid']));
 
       return new Comment(

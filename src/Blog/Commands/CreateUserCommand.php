@@ -3,14 +3,11 @@
 namespace GB\CP\Blog\Commands;
 
 use GB\CP\Blog\Exceptions\ArgumentsException;
-use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
 use GB\CP\Blog\Repositories\UsersRepository\UsersRepositoryInterface;
 use GB\CP\Blog\User;
 use GB\CP\Blog\UUID;
 use GB\CP\Blog\Exceptions\CommandException;
 use GB\CP\Blog\Exceptions\UserNotFoundException;
-use GB\CP\Blog\Exceptions\InvalidArgumentException;
-use GB\CP\Blog\Commands\Arguments;
 use Psr\Log\LoggerInterface;
 
 class CreateUserCommand
