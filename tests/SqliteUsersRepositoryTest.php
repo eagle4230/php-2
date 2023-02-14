@@ -2,6 +2,7 @@
 
 namespace GB\CP;
 
+use GB\Blog\UnitTests\DummyLogger;
 use PHPUnit\Framework\TestCase;
 use PDO;
 use PDOStatement;
@@ -21,7 +22,7 @@ class SqliteUsersRepositoryTest extends TestCase
     $statementStub->method('fetch')->willReturn(false);
     $connectionMock->method('prepare')->willReturn($statementStub);
 
-    $repository = new SqliteUsersRepository($connectionMock);
+    $repository = new SqliteUsersRepository($connectionMock, new DummyLogger());
     $this->expectException(UserNotFoundException::class);
     $this->expectExceptionMessage('Cannot find user: Ivan');
 
@@ -55,7 +56,7 @@ class SqliteUsersRepositoryTest extends TestCase
     $connectionStub->method('prepare')->willReturn($statementMock);
 
     // 1. Передаём в репозиторий стаб подключения
-    $repository = new SqliteUsersRepository($connectionStub);
+    $repository = new SqliteUsersRepository($connectionStub, new DummyLogger());
 
     // Вызываем метод сохранения пользователя
     $repository->save(
