@@ -12,7 +12,6 @@ use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
 use GB\CP\Blog\Repositories\UsersRepository\UsersRepositoryInterface;
 use GB\CP\Http\Auth\IdentificationInterface;
 use GB\CP\Http\Auth\JsonBodyUsernameIdentification;
-use GB\CP\Http\Auth\JsonBodyUuidIdentification;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Psr\Log\LoggerInterface;

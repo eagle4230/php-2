@@ -45,17 +45,17 @@ class SqlitePostsRepository implements PostsRepositoryInterface
      * @throws InvalidArgumentException
      */
     public function get(UUID $uuid): Post
-  {
-    $statement = $this->connection->prepare(
-      'SELECT * FROM posts WHERE uuid = :uuid'
-    );
-    $statement->execute([
-      ':uuid' => (string)$uuid,
-    ]);
+    {
+        $statement = $this->connection->prepare(
+            'SELECT * FROM posts WHERE uuid = :uuid'
+        );
 
-    return $this->getPost($statement, $uuid);
+        $statement->execute([
+            ':uuid' => (string)$uuid,
+        ]);
 
-  }
+        return $this->getPost($statement, $uuid);
+    }
 
     /**
      * @throws InvalidArgumentException
@@ -66,6 +66,7 @@ class SqlitePostsRepository implements PostsRepositoryInterface
         $result = $statement->fetch(PDO::FETCH_ASSOC);
 
         if ($result === false) {
+            $this->logger->warning("Not found Post with UUID: $postUuid");
             throw new PostNotFoundException(
                 "Cannot find post: $postUuid" . PHP_EOL
             );

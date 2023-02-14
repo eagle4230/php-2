@@ -1,16 +1,15 @@
 <?php
 
 use GB\CP\Blog\Exceptions\AppException;
-use GB\CP\Blog\Repositories\CommentsRepository\SqliteCommentsRepository;
-use GB\CP\Blog\Repositories\PostsRepository\SqlitePostsRepository;
-use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
 use GB\CP\Http\Actions\Comments\CreateComment;
+use GB\CP\Http\Actions\Comments\FindCommentByUuid;
 use GB\CP\Http\Actions\Likes\CreateLikePost;
 use GB\CP\Http\Actions\Posts\CreatePost;
 use GB\CP\Http\Actions\Posts\DeletePost;
 use GB\CP\Http\Actions\Posts\FindByUuid;
 use GB\CP\Http\Actions\Users\CreateUser;
 use GB\CP\Http\Actions\Users\FindByUsername;
+use GB\CP\Http\Actions\Users\FindUserByUuid;
 use GB\CP\Http\ErrorResponse;
 use GB\CP\Http\Request;
 use Psr\Log\LoggerInterface;
@@ -49,7 +48,9 @@ try {
 $routes = [
     'GET' => [
         '/users/show' => FindByUsername::class,
+        '/users/find' => FindUserByUuid::class,
         '/posts/show' => FindByUuid::class,
+        '/comments/show' => FindCommentByUuid::class,
     ],
     'POST' => [
         '/users/create' => CreateUser::class,

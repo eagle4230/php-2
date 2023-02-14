@@ -15,30 +15,27 @@ use Psr\Log\LoggerInterface;
 
 class SqliteCommentsRepository implements CommentsRepositoryInterface
 {
+    private PDO $connection;
+    public function __construct(
+        PDO $connection,
+        private LoggerInterface $logger
+    )
+    {
+        $this->connection = $connection;
+    }
+    public function save(Comment $comment): void
+    {
+        $statement = $this->connection->prepare(
+      'INSERT INTO comments (uuid, post_uuid, author_uuid, text) 
+            VALUES (:uuid, :post_uuid, :author_uuid, :text)'
+        );
 
-  private PDO $connection;
-
-  public function __construct(
-      PDO $connection,
-      private LoggerInterface $logger
-  )
-  {
-    $this->connection = $connection;
-  }
-
-  public function save(Comment $comment): void
-  {
-    $statement = $this->connection->prepare(
-      'INSERT INTO comments (uuid, post_uuid, author_uuid, text)
-       VALUES (:uuid, :post_uuid, :author_uuid, :text)'
-    );
-
-    $statement->execute([
-        ':uuid' => $comment->getUuid(),
-        ':post_uuid' => $comment->getPost()->getUuid(),
-        ':author_uuid' => $comment->getUser()->getUUID(),
-        ':text' => $comment->getText(),
-    ]);
+        $statement->execute([
+            ':uuid' => $comment->getUuid(),
+            ':post_uuid' => $comment->getPost()->getUuid(),
+            ':author_uuid' => $comment->getUser()->getUUID(),
+            ':text' => $comment->getText(),
+        ]);
 
       // Пишем в лог-файл
       $uuid = $comment->getUuid();
@@ -72,6 +69,7 @@ class SqliteCommentsRepository implements CommentsRepositoryInterface
       $result = $statement->fetch(PDO::FETCH_ASSOC);
 
       if ($result === false) {
+          $this->logger->warning("Not found Comment with UUID: $commentUuid");
           throw new CommentNotFoundException(
               "Cannot find comment: $commentUuid" . PHP_EOL
           );
