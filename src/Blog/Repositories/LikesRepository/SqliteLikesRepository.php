@@ -8,12 +8,16 @@ use GB\CP\Blog\Exceptions\LikesNotFoundException;
 use GB\CP\Blog\Like;
 use GB\CP\Blog\UUID;
 use PDO;
+use Psr\Log\LoggerInterface;
 
 class SqliteLikesRepository implements LikesRepositoryInterface
 {
     private PDO $connection;
 
-    public function __construct(PDO $connection)
+    public function __construct(
+        PDO $connection,
+        private LoggerInterface $logger
+    )
     {
         $this->connection = $connection;
     }
@@ -29,6 +33,10 @@ class SqliteLikesRepository implements LikesRepositoryInterface
             ':author_uuid' => (string)$like->getAuthorUuid(),
             ':post_uuid' => (string)$like->getPostUuid()
         ]);
+
+        // Пишем в лог-файл
+        $uuid = $like->getUuid();
+        $this->logger->info("Like saved under UUID: $uuid");
     }
 
     /**

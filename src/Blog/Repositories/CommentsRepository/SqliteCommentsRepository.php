@@ -11,30 +11,35 @@ use GB\CP\Blog\{Comment,
     UUID};
 use PDO;
 use PDOStatement;
+use Psr\Log\LoggerInterface;
 
 class SqliteCommentsRepository implements CommentsRepositoryInterface
 {
+    private PDO $connection;
+    public function __construct(
+        PDO $connection,
+        private LoggerInterface $logger
+    )
+    {
+        $this->connection = $connection;
+    }
+    public function save(Comment $comment): void
+    {
+        $statement = $this->connection->prepare(
+      'INSERT INTO comments (uuid, post_uuid, author_uuid, text) 
+            VALUES (:uuid, :post_uuid, :author_uuid, :text)'
+        );
 
-  private PDO $connection;
+        $statement->execute([
+            ':uuid' => $comment->getUuid(),
+            ':post_uuid' => $comment->getPost()->getUuid(),
+            ':author_uuid' => $comment->getUser()->getUUID(),
+            ':text' => $comment->getText(),
+        ]);
 
-  public function __construct(PDO $connection)
-  {
-    $this->connection = $connection;
-  }
-
-  public function save(Comment $comment): void
-  {
-    $statement = $this->connection->prepare(
-      'INSERT INTO comments (uuid, post_uuid, author_uuid, text)
-       VALUES (:uuid, :post_uuid, :author_uuid, :text)'
-    );
-
-    $statement->execute([
-        ':uuid' => $comment->getUuid(),
-        ':post_uuid' => $comment->getPost()->getUuid(),
-        ':author_uuid' => $comment->getUser()->getUUID(),
-        ':text' => $comment->getText(),
-    ]);
+      // Пишем в лог-файл
+      $uuid = $comment->getUuid();
+      $this->logger->info("Comment saved under UUID: $uuid");
   }
 
     /**
@@ -64,15 +69,16 @@ class SqliteCommentsRepository implements CommentsRepositoryInterface
       $result = $statement->fetch(PDO::FETCH_ASSOC);
 
       if ($result === false) {
+          $this->logger->warning("Not found Comment with UUID: $commentUuid");
           throw new CommentNotFoundException(
               "Cannot find comment: $commentUuid" . PHP_EOL
           );
       }
 
-      $userRepository = new SqliteUsersRepository($this->connection);
+      $userRepository = new SqliteUsersRepository($this->connection, $this->logger);
       $user = $userRepository->get(new UUID($result['author_uuid']));
 
-      $postRepository = new SqlitePostsRepository($this->connection);
+      $postRepository = new SqlitePostsRepository($this->connection, $this->logger);
       $post = $postRepository->get(new UUID($result['post_uuid']));
 
       return new Comment(
