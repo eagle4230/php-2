@@ -5,7 +5,7 @@ namespace GB\CP\Http\Auth;
 use GB\CP\Blog\User;
 use GB\CP\Http\Request;
 
-interface IdentificationInterface
+interface AuthenticationInterface
 {
     // Контракт описывает единственный метод,
     // получающий пользователя из запроса

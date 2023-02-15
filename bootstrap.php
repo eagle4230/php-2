@@ -10,8 +10,10 @@ use GB\CP\Blog\Repositories\PostsRepository\PostsRepositoryInterface;
 use GB\CP\Blog\Repositories\PostsRepository\SqlitePostsRepository;
 use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
 use GB\CP\Blog\Repositories\UsersRepository\UsersRepositoryInterface;
+use GB\CP\Http\Auth\AuthenticationInterface;
 use GB\CP\Http\Auth\IdentificationInterface;
 use GB\CP\Http\Auth\JsonBodyUsernameIdentification;
+use GB\CP\Http\Auth\PasswordAuthentication;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Psr\Log\LoggerInterface;
@@ -95,6 +97,12 @@ $container->bind(
 $container->bind(
     LikesRepositoryInterface::class,
     SqliteLikesRepository::class
+);
+
+// 6. для аутентификации
+$container->bind(
+    AuthenticationInterface::class,
+    PasswordAuthentication::class
 );
 
 // Возвращаем объект контейнера

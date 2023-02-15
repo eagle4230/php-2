@@ -2,6 +2,7 @@
 
 namespace GB\CP\Http\Actions\Posts;
 
+use GB\CP\Blog\Exceptions\AuthException;
 use GB\CP\Blog\Exceptions\HttpException;
 use GB\CP\Blog\Exceptions\InvalidArgumentException;
 use GB\CP\Blog\Exceptions\UserNotFoundException;
@@ -10,6 +11,7 @@ use GB\CP\Blog\Repositories\PostsRepository\PostsRepositoryInterface;
 use GB\CP\Blog\Repositories\UsersRepository\UsersRepositoryInterface;
 use GB\CP\Blog\UUID;
 use GB\CP\Http\Actions\ActionInterface;
+use GB\CP\Http\Auth\AuthenticationInterface;
 use GB\CP\Http\Auth\IdentificationInterface;
 use GB\CP\Http\ErrorResponse;
 use GB\CP\Http\Request;
@@ -20,7 +22,7 @@ use Psr\Log\LoggerInterface;
 class CreatePost implements ActionInterface
 {
     public function __construct(
-        private IdentificationInterface $identification,
+        private AuthenticationInterface $authentication,
         private PostsRepositoryInterface $postsRepository,
         private LoggerInterface $logger //Внедряем контракт логгера
     )
@@ -28,7 +30,17 @@ class CreatePost implements ActionInterface
     }
     public function handle(Request $request): Response
     {
-        $user = $this->identification->user($request);
+        // Обрабатываем ошибки аутентификации
+        // и возвращаем неудачный ответ
+        // с сообщением об ошибке
+        try {
+            $author = $this->authentication->user($request);
+        } catch (AuthException $e) {
+            return new ErrorResponse($e->getMessage());
+        }
+
+
+        $user = $this->authentication->user($request);
 
         $newPostUuid = UUID::random();
 
