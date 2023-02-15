@@ -25,16 +25,18 @@ class CreateUserCommand
      * @throws CommandException
      */
     public function handle(Arguments $arguments): void
-  {
-      $this->logger->info("Create user command started");
+    {
+        $this->logger->info("Create user command started");
 
-      $username = $arguments->get('username');
-      //Получаем пароль для нового пользователя
-      $password = $arguments->get('password');
+        $username = $arguments->get('username');
+        //Получаем пароль для нового пользователя
+        $password = $arguments->get('password');
+        // Вычисляем SHA-256-хеш пароля
+        $hash = hash('sha256', $password);
 
 
-      // Проверяем, существует ли пользователь в репозитории
-      if ($this->userExists($username)) {
+        // Проверяем, существует ли пользователь в репозитории
+        if ($this->userExists($username)) {
             // Логируем сообщение с уровнем WARNING
             $this->logger->warning("User already exists: $username");
             // Вместо выбрасывания исключения просто выходим из функции
@@ -42,7 +44,7 @@ class CreateUserCommand
             // Бросаем исключение, если пользователь уже существует
             // закоментил после добавления лога
             //throw new CommandException("User already exists: $username");
-      }
+        }
 
       $uuid = UUID::random();
       // Сохраняем пользователя в репозиторий
@@ -50,7 +52,7 @@ class CreateUserCommand
           new User(
               $uuid,
               $username,
-              $password,
+              $hash,
               $arguments->get('first_name'),
               $arguments->get('last_name')
           )

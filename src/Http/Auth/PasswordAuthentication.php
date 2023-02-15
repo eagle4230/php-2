@@ -40,7 +40,9 @@ class PasswordAuthentication implements AuthenticationInterface
             throw new AuthException($e->getMessage());
         }
 
-        if ($password !== $user->password()) {
+        $hash = hash('sha256', $password);
+
+        if ($hash !== $user->password()) {
             // Если пароли не совпадают — бросаем исключение
             throw new AuthException('Wrong password');
         }
