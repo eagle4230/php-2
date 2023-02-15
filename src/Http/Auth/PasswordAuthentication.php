@@ -16,6 +16,11 @@ class PasswordAuthentication implements AuthenticationInterface
         private UsersRepositoryInterface $usersRepository
     ) {
     }
+
+    /**
+     * @throws AuthException
+     * @throws \JsonException
+     */
     public function user(Request $request): User
     {
         // 1. Идентифицируем пользователя
@@ -40,10 +45,21 @@ class PasswordAuthentication implements AuthenticationInterface
             throw new AuthException($e->getMessage());
         }
 
-        $hash = hash('sha256', $password);
+        //$hash = hash('sha256', $password);
 
-        if ($hash !== $user->password()) {
-            // Если пароли не совпадают — бросаем исключение
+        //if ($hash !== $user->password()) {
+        //    // Если пароли не совпадают — бросаем исключение
+        //    throw new AuthException('Wrong password');
+        //}
+
+        try {
+            $password = $request->jsonBodyField('password');
+        } catch (HttpException $e) {
+            throw new AuthException($e->getMessage());
+        }
+
+        // Проверяем пароль методом пользователя
+        if (!$user->checkPassword($password)) {
             throw new AuthException('Wrong password');
         }
 

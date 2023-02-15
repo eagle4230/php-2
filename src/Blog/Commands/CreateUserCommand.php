@@ -5,7 +5,6 @@ namespace GB\CP\Blog\Commands;
 use GB\CP\Blog\Exceptions\ArgumentsException;
 use GB\CP\Blog\Repositories\UsersRepository\UsersRepositoryInterface;
 use GB\CP\Blog\User;
-use GB\CP\Blog\UUID;
 use GB\CP\Blog\Exceptions\CommandException;
 use GB\CP\Blog\Exceptions\UserNotFoundException;
 use Psr\Log\LoggerInterface;
@@ -29,11 +28,6 @@ class CreateUserCommand
         $this->logger->info("Create user command started");
 
         $username = $arguments->get('username');
-        //Получаем пароль для нового пользователя
-        $password = $arguments->get('password');
-        // Вычисляем SHA-256-хеш пароля
-        $hash = hash('sha256', $password);
-
 
         // Проверяем, существует ли пользователь в репозитории
         if ($this->userExists($username)) {
@@ -41,24 +35,21 @@ class CreateUserCommand
             $this->logger->warning("User already exists: $username");
             // Вместо выбрасывания исключения просто выходим из функции
             return;
-            // Бросаем исключение, если пользователь уже существует
-            // закоментил после добавления лога
-            //throw new CommandException("User already exists: $username");
         }
 
-      $uuid = UUID::random();
-      // Сохраняем пользователя в репозиторий
-      $this->usersRepository->save(
-          new User(
-              $uuid,
-              $username,
-              $hash,
-              $arguments->get('first_name'),
-              $arguments->get('last_name')
-          )
-      );
-      $this->logger->info("User created: $uuid");
-  }
+        // Создаём объект пользователя
+        // Функция createFrom сама создаст UUID
+        // и захеширует пароль
+        $user = User::createFrom(
+            $username,
+            $arguments->get('password'),
+            $arguments->get('first_name'),
+            $arguments->get('last_name')
+        );
+        $this->usersRepository->save($user);
+        // Получаем UUID созданного пользователя
+        $this->logger->info('User created: ' . $user->getUUID());
+    }
   
   private function userExists(string $username): bool
   {

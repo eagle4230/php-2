@@ -8,21 +8,21 @@ class User
 {
   private UUID $uuid;
   private string $username;
-  private string $password;
+  private string $hashedPassword;
   private string $firstName;
   private string $lastName;
 
   public function __construct(
     UUID $uuid, 
     string $username,
-    string $password,
+    string $hashedPassword,
     string $firstName, 
     string $lastName,
   )
   {
     $this->uuid = $uuid;
     $this->username = $username;
-    $this->password = $password;
+    $this->hashedPassword = $hashedPassword;
     $this->firstName = $firstName;
     $this->lastName = $lastName;
   }
@@ -47,14 +47,44 @@ class User
     $this->username = $username;
   }
 
-  public function password(): string
+  public function hashedPassword(): string
   {
-      return $this->password;
+      return $this->hashedPassword;
   }
-  public function getFirstName(): string
-  {
-    return $this->firstName;
-  }
+
+    // Функция для вычисления хеша
+    private static function hash(string $password): string
+    {
+        return hash('sha256', $password);
+    }
+
+    // Функция для проверки предъявленного пароля
+    public function checkPassword(string $password): bool
+    {
+        return $this->hashedPassword === self::hash($password);
+    }
+
+    // Функция для создания нового пользователя
+    public static function createFrom(
+        string $username,
+        string $password,
+        string $firstName,
+        string $lastName
+    ): self
+    {
+        return new self(
+            UUID::random(),
+            $username,
+            self::hash($password),
+            $firstName,
+            $lastName
+        );
+    }
+
+    public function getFirstName(): string
+    {
+        return $this->firstName;
+    }
 
   public function setFirstName(string $firstName): void
   {
@@ -73,7 +103,7 @@ class User
   
   public function __toString(): string
   {
-    return "UUID: $this->uuid" . PHP_EOL . "Login: $this->username" . PHP_EOL . "Пароль: $this->password" .
+    return "UUID: $this->uuid" . PHP_EOL . "Login: $this->username" . PHP_EOL .
         "Имя: $this->firstName" . PHP_EOL . "Фамилия: $this->lastName";
   }
 }
