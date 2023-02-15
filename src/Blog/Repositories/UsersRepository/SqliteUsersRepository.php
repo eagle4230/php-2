@@ -62,7 +62,11 @@ class SqliteUsersRepository implements UsersRepositoryInterface
 
   }
 
-  public function getByUsername(string $username): User
+    /**
+     * @throws InvalidArgumentException
+     * @throws UserNotFoundException
+     */
+    public function getByUsername(string $username): User
   {
     $statement = $this->connection->prepare(
       'SELECT * FROM users WHERE username = :username'
