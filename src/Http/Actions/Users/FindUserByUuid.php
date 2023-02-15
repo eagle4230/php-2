@@ -45,6 +45,7 @@ class FindUserByUuid implements ActionInterface
         return new SuccessfulResponse([
             'uuid' => $uuid,
             'username' => $user->getUsername(),
+            'password' => $user->password(),
             'firstName' => $user->getFirstName(),
             'lastName' => $user->getLastName()
         ]);

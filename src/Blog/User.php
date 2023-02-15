@@ -8,17 +8,21 @@ class User
 {
   private UUID $uuid;
   private string $username;
+  private string $password;
   private string $firstName;
   private string $lastName;
- 
+
   public function __construct(
     UUID $uuid, 
-    string $username, 
+    string $username,
+    string $password,
     string $firstName, 
-    string $lastName)
+    string $lastName,
+  )
   {
     $this->uuid = $uuid;
     $this->username = $username;
+    $this->password = $password;
     $this->firstName = $firstName;
     $this->lastName = $lastName;
   }
@@ -43,6 +47,10 @@ class User
     $this->username = $username;
   }
 
+  public function password(): string
+  {
+      return $this->password;
+  }
   public function getFirstName(): string
   {
     return $this->firstName;
@@ -58,14 +66,14 @@ class User
     return $this->lastName;
   }
 
-  public function setLastName(string $LastName): void
+  public function setLastName(string $lastName): void
   {
     $this->lastName = $lastName;
   }
   
   public function __toString(): string
   {
-    return "UUID: $this->uuid" . PHP_EOL . "Login: $this->username" . PHP_EOL . 
-    "Имя: $this->firstName" . PHP_EOL . "Фамилия: $this->lastName";
+    return "UUID: $this->uuid" . PHP_EOL . "Login: $this->username" . PHP_EOL . "Пароль: $this->password" .
+        "Имя: $this->firstName" . PHP_EOL . "Фамилия: $this->lastName";
   }
 }

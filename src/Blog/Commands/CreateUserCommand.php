@@ -29,6 +29,9 @@ class CreateUserCommand
       $this->logger->info("Create user command started");
 
       $username = $arguments->get('username');
+      //Получаем пароль для нового пользователя
+      $password = $arguments->get('password');
+
 
       // Проверяем, существует ли пользователь в репозитории
       if ($this->userExists($username)) {
@@ -47,6 +50,7 @@ class CreateUserCommand
           new User(
               $uuid,
               $username,
+              $password,
               $arguments->get('first_name'),
               $arguments->get('last_name')
           )
