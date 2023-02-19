@@ -29,4 +29,9 @@ class AuthToken
     {
         return $this->expiresOn;
     }
+
+    public function __toString(): string
+    {
+        return $this->token;
+    }
 }

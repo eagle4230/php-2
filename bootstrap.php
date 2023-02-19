@@ -2,6 +2,8 @@
 
 use Dotenv\Dotenv;
 use GB\CP\Blog\Container\DIContainer;
+use GB\CP\Blog\Repositories\AuthTokensRepository\AuthTokensRepositoryInterface;
+use GB\CP\Blog\Repositories\AuthTokensRepository\SqliteAuthTokensRepository;
 use GB\CP\Blog\Repositories\CommentsRepository\CommentsRepositoryInterface;
 use GB\CP\Blog\Repositories\CommentsRepository\SqliteCommentsRepository;
 use GB\CP\Blog\Repositories\LikesRepository\LikesRepositoryInterface;
@@ -14,6 +16,7 @@ use GB\CP\Http\Auth\AuthenticationInterface;
 use GB\CP\Http\Auth\IdentificationInterface;
 use GB\CP\Http\Auth\JsonBodyUsernameIdentification;
 use GB\CP\Http\Auth\PasswordAuthentication;
+use GB\CP\Http\Auth\PasswordAuthenticationInterface;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Psr\Log\LoggerInterface;
@@ -103,6 +106,15 @@ $container->bind(
 $container->bind(
     AuthenticationInterface::class,
     PasswordAuthentication::class
+);
+
+$container->bind(
+    PasswordAuthenticationInterface::class,
+    PasswordAuthentication::class
+);
+$container->bind(
+    AuthTokensRepositoryInterface::class,
+    SqliteAuthTokensRepository::class
 );
 
 // Возвращаем объект контейнера

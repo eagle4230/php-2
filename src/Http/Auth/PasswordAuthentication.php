@@ -9,7 +9,7 @@ use GB\CP\Blog\Repositories\UsersRepository\UsersRepositoryInterface;
 use GB\CP\Blog\User;
 use GB\CP\Http\Request;
 
-class PasswordAuthentication implements AuthenticationInterface
+class PasswordAuthentication implements PasswordAuthenticationInterface
 {
 
     public function __construct(
