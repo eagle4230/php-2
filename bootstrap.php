@@ -12,11 +12,13 @@ use GB\CP\Blog\Repositories\PostsRepository\PostsRepositoryInterface;
 use GB\CP\Blog\Repositories\PostsRepository\SqlitePostsRepository;
 use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
 use GB\CP\Blog\Repositories\UsersRepository\UsersRepositoryInterface;
+use GB\CP\Http\Actions\Auth\BearerTokenAuthentication;
 use GB\CP\Http\Auth\AuthenticationInterface;
 use GB\CP\Http\Auth\IdentificationInterface;
 use GB\CP\Http\Auth\JsonBodyUsernameIdentification;
 use GB\CP\Http\Auth\PasswordAuthentication;
 use GB\CP\Http\Auth\PasswordAuthenticationInterface;
+use GB\CP\Http\Auth\TokenAuthenticationInterface;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Psr\Log\LoggerInterface;
@@ -116,6 +118,12 @@ $container->bind(
     AuthTokensRepositoryInterface::class,
     SqliteAuthTokensRepository::class
 );
+
+$container->bind(
+    TokenAuthenticationInterface::class,
+    BearerTokenAuthentication::class
+);
+
 
 // Возвращаем объект контейнера
 return $container;
