@@ -8,7 +8,6 @@ use GB\CP\Blog\Post;
 use GB\CP\Blog\Repositories\PostsRepository\PostsRepositoryInterface;
 use GB\CP\Blog\UUID;
 use GB\CP\Http\Actions\ActionInterface;
-use GB\CP\Http\Auth\AuthenticationInterface;
 use GB\CP\Http\Auth\TokenAuthenticationInterface;
 use GB\CP\Http\ErrorResponse;
 use GB\CP\Http\Request;
@@ -32,13 +31,10 @@ class CreatePost implements ActionInterface
         // и возвращаем неудачный ответ
         // с сообщением об ошибке
         try {
-            $author = $this->authentication->user($request);
+            $user= $this->authentication->user($request);
         } catch (AuthException $e) {
             return new ErrorResponse($e->getMessage());
         }
-
-
-        $user = $this->authentication->user($request);
 
         $newPostUuid = UUID::random();
 
