@@ -2,6 +2,7 @@
 
 namespace GB\CP\Http\Actions\Likes;
 
+use GB\CP\Blog\Exceptions\AuthException;
 use GB\CP\Blog\Exceptions\HttpException;
 use GB\CP\Blog\Exceptions\InvalidArgumentException;
 use GB\CP\Blog\Exceptions\LikeAlreadyExistsException;
@@ -11,6 +12,7 @@ use GB\CP\Blog\Repositories\LikesRepository\LikesRepositoryInterface;
 use GB\CP\Blog\Repositories\PostsRepository\PostsRepositoryInterface;
 use GB\CP\Blog\UUID;
 use GB\CP\Http\Actions\ActionInterface;
+use GB\CP\Http\Auth\TokenAuthenticationInterface;
 use GB\CP\Http\ErrorResponse;
 use GB\CP\Http\Request;
 use GB\CP\Http\Response;
@@ -21,6 +23,7 @@ class CreateLikePost implements ActionInterface
     public function __construct(
         private LikesRepositoryInterface $likesRepository,
         private PostsRepositoryInterface $postsRepository,
+        private TokenAuthenticationInterface $authentication
     ){
     }
 
@@ -30,6 +33,12 @@ class CreateLikePost implements ActionInterface
      */
     public function handle(Request $request): Response
     {
+        try {
+            $user= $this->authentication->user($request);
+        } catch (AuthException $e) {
+            return new ErrorResponse($e->getMessage());
+        }
+
         try {
             $postUuid = $request->jsonBodyField('post_uuid');
             $authorUuid = $request->jsonBodyField('author_uuid');
