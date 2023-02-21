@@ -3,6 +3,7 @@
 namespace GB\CP\Http\Actions\Comments;
 
 use GB\CP\Blog\Comment;
+use GB\CP\Blog\Exceptions\AuthException;
 use GB\CP\Blog\Exceptions\CommentNotFoundException;
 use GB\CP\Blog\Exceptions\HttpException;
 use GB\CP\Blog\Exceptions\InvalidArgumentException;
@@ -12,6 +13,7 @@ use GB\CP\Blog\Repositories\PostsRepository\PostsRepositoryInterface;
 use GB\CP\Blog\Repositories\UsersRepository\UsersRepositoryInterface;
 use GB\CP\Blog\UUID;
 use GB\CP\Http\Actions\ActionInterface;
+use GB\CP\Http\Auth\TokenAuthenticationInterface;
 use GB\CP\Http\ErrorResponse;
 use GB\CP\Http\Request;
 use GB\CP\Http\Response;
@@ -22,11 +24,18 @@ class CreateComment implements ActionInterface
     public function __construct(
         private UsersRepositoryInterface $usersRepository,
         private PostsRepositoryInterface $postsRepository,
-        private CommentsRepositoryInterface $commentsRepository
+        private CommentsRepositoryInterface $commentsRepository,
+        private TokenAuthenticationInterface $authentication
     ) {
     }
     public function handle(Request $request): Response
     {
+        try {
+            $user= $this->authentication->user($request);
+        } catch (AuthException $e) {
+            return new ErrorResponse($e->getMessage());
+        }
+
         // Пытаемся вытащить UUID юзера из тела запроса
         try {
             $authorUuid = new UUID($request->jsonBodyField('author_uuid'));

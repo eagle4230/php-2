@@ -33,42 +33,54 @@ class CreateUserCommandTest extends TestCase
     $command->handle(new Arguments(['username' => 'Ivan']));
   }*/
 
-  // Тест проверяет, что команда действительно требует имя пользователя
-  public function testItRequiresFirstName(): void
-  {
-    // $usersRepository - это объект анонимного класса,
-    // реализующего контракт UsersRepositoryInterface
-    $usersRepository = new class implements UsersRepositoryInterface
+    // Проверяем что команда действительно требует пароля
+    public function testItRequiresPassword(): void
     {
-      public function save(User $user): void
-      {
-        // Ничего не делаем
-      }
+        $command = new CreateUserCommand(
+            $this->makeUsersRepository(),
+            new DummyLogger()
+        );
+        $this->expectException(ArgumentsException::class);
+        $this->expectExceptionMessage('No such argument: password');
+        $command->handle(new Arguments([
+            'username' => 'Ivan'
+        ]));
+    }
 
-      public function get(UUID $uuid): User
-      {
-        // И здесь ничего не делаем
-        throw new UserNotFoundException("Not found");
-      }
+    // Тест проверяет, что команда действительно требует имя пользователя
+    public function testItRequiresFirstName(): void
+    {
+        // $usersRepository - это объект анонимного класса,
+        // реализующего контракт UsersRepositoryInterface
+        $usersRepository = new class implements UsersRepositoryInterface
+        {
+            public function save(User $user): void
+            {
+                // Ничего не делаем
+            }
+            public function get(UUID $uuid): User
+            {
+                // И здесь ничего не делаем
+                throw new UserNotFoundException("Not found");
+            }
+            public function getByUsername(string $username): User
+            {
+                // И здесь ничего не делаем
+                throw new UserNotFoundException("Not found");
+            }
+        };
 
-      public function getByUsername(string $username): User
-      {
-        // И здесь ничего не делаем
-        throw new UserNotFoundException("Not found");
-      }
-    };
-
-    // Передаём объект анонимного класса
-    // в качестве реализации UsersRepositoryInterface
-    $command = new CreateUserCommand($usersRepository, new DummyLogger());
+        // Передаём объект анонимного класса
+        // в качестве реализации UsersRepositoryInterface
+        $command = new CreateUserCommand($usersRepository, new DummyLogger());
   
-    // Ожидаем, что будет брошено исключение
-    $this->expectException(ArgumentsException::class);
-    $this->expectExceptionMessage('No such argument: first_name');
+        // Ожидаем, что будет брошено исключение
+        $this->expectException(ArgumentsException::class);
+        $this->expectExceptionMessage('No such argument: username');
   
-    // Запускаем команду
-    $command->handle(new Arguments(['username' => 'Ivan']));
-  }
+        // Запускаем команду
+        $command->handle(new Arguments(['first_name' => 'Ivan']));
+    }
 
   // Функция возвращает объект типа UsersRepositoryInterface
   private function makeUsersRepository(): UsersRepositoryInterface
@@ -101,6 +113,7 @@ class CreateUserCommandTest extends TestCase
   
     $command->handle(new Arguments([
       'username' => 'Ivan',
+      'password' => '123',
       // Нам нужно передать имя пользователя,
       // чтобы дойти до проверки наличия фамилии
       'first_name' => 'Ivan',
@@ -153,6 +166,7 @@ class CreateUserCommandTest extends TestCase
     // Запускаем команду
     $command->handle(new Arguments([
       'username' => 'Ivan',
+      'password' => 'some_password',
       'first_name' => 'Ivan',
       'last_name' => 'Nikitin',
     ]));

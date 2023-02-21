@@ -24,14 +24,15 @@ class SqliteUsersRepository implements UsersRepositoryInterface
   {
     // Подготавливаем запрос
     $statement = $this->connection->prepare(
-      'INSERT INTO users (uuid, username, first_name, last_name) 
-      VALUES (:uuid, :username, :first_name, :last_name)'
+      'INSERT INTO users (uuid, username, password, first_name, last_name) 
+      VALUES (:uuid, :username, :password, :first_name, :last_name)'
     );
 
     // Выполняем запрос с конкретными значениями
     $statement->execute([
       ':uuid' => (string)$user->getUUID(),
       ':username' => $user->getUsername(),
+      ':password' => $user->hashedPassword(),
       ':first_name' => $user->getFirstName(),
       ':last_name' => $user->getLastName()
     ]);
@@ -61,8 +62,11 @@ class SqliteUsersRepository implements UsersRepositoryInterface
 
   }
 
-
-  public function getByUsername(string $username): User
+    /**
+     * @throws InvalidArgumentException
+     * @throws UserNotFoundException
+     */
+    public function getByUsername(string $username): User
   {
     $statement = $this->connection->prepare(
       'SELECT * FROM users WHERE username = :username'
@@ -91,7 +95,8 @@ class SqliteUsersRepository implements UsersRepositoryInterface
 
     return new User(
       new UUID($result['uuid']),
-      $result['username'], 
+      $result['username'],
+      $result['password'],
       $result['first_name'], 
       $result['last_name']
     );

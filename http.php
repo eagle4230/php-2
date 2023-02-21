@@ -1,6 +1,7 @@
 <?php
 
 use GB\CP\Blog\Exceptions\AppException;
+use GB\CP\Http\Actions\Auth\LogIn;
 use GB\CP\Http\Actions\Comments\CreateComment;
 use GB\CP\Http\Actions\Comments\FindCommentByUuid;
 use GB\CP\Http\Actions\Likes\CreateLikePost;
@@ -56,7 +57,8 @@ $routes = [
         '/users/create' => CreateUser::class,
         '/posts/create' => CreatePost::class,
         '/posts/comment' => CreateComment::class,
-        '/like/create' => CreateLikePost::class
+        '/like/create' => CreateLikePost::class,
+        '/login' => LogIn::class,
     ],
     'DELETE' => [
         '/posts' => DeletePost::class,
