@@ -48,7 +48,7 @@ class CreateUserCommandTest extends TestCase
     }
 
     // Тест проверяет, что команда действительно требует имя пользователя
-    /* TODO public function testItRequiresFirstName(): void
+    public function testItRequiresFirstName(): void
     {
         // $usersRepository - это объект анонимного класса,
         // реализующего контракт UsersRepositoryInterface
@@ -68,7 +68,6 @@ class CreateUserCommandTest extends TestCase
                 // И здесь ничего не делаем
                 throw new UserNotFoundException("Not found");
             }
-
         };
 
         // Передаём объект анонимного класса
@@ -77,11 +76,11 @@ class CreateUserCommandTest extends TestCase
   
         // Ожидаем, что будет брошено исключение
         $this->expectException(ArgumentsException::class);
-        $this->expectExceptionMessage('No such argument: first_name');
+        $this->expectExceptionMessage('No such argument: username');
   
         // Запускаем команду
-        $command->handle(new Arguments(['username' => 'Ivan']));
-    }*/
+        $command->handle(new Arguments(['first_name' => 'Ivan']));
+    }
 
   // Функция возвращает объект типа UsersRepositoryInterface
   private function makeUsersRepository(): UsersRepositoryInterface
@@ -105,7 +104,7 @@ class CreateUserCommandTest extends TestCase
   }
 
   // Тест проверяет, что команда действительно требует фамилию пользователя
-  /* TODO public function testItRequiresLastName(): void
+  public function testItRequiresLastName(): void
   {
     // Передаём в конструктор команды объект, возвращаемый нашей функцией
     $command = new CreateUserCommand($this->makeUsersRepository(), new DummyLogger());
@@ -114,11 +113,12 @@ class CreateUserCommandTest extends TestCase
   
     $command->handle(new Arguments([
       'username' => 'Ivan',
+      'password' => '123',
       // Нам нужно передать имя пользователя,
       // чтобы дойти до проверки наличия фамилии
       'first_name' => 'Ivan',
     ]));
-  }*/
+  }
 
   // Тест, проверяющий, что команда сохраняет пользователя в репозитории
 
