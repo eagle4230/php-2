@@ -1,5 +1,6 @@
 <?php
 
+use GB\CP\Blog\Commands\Posts\DeletePost;
 use GB\CP\Blog\Commands\Users\CreateUser;
 use Symfony\Component\Console\Application;
 
@@ -13,6 +14,7 @@ $application = new Application();
 // Перечисляем классы команд
 $commandsClasses = [
     CreateUser::class,
+    DeletePost::class,
 ];
 
 foreach ($commandsClasses as $commandClass) {

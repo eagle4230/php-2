@@ -3,9 +3,11 @@
 namespace GB\CP\Blog\Repositories\PostsRepository;
 
 use GB\CP\Blog\Exceptions\InvalidArgumentException;
+use GB\CP\Blog\Exceptions\PostsRepositoryException;
 use GB\CP\Blog\Post;
 use GB\CP\Blog\UUID;
 use \PDO;
+use PDOException;
 use \PDOStatement;
 use GB\CP\Blog\Exceptions\PostNotFoundException;
 use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
@@ -84,15 +86,19 @@ class SqlitePostsRepository implements PostsRepositoryInterface
 
     }
 
-  public function delete(UUID $uuid): void
-  {
-      $statement = $this->connection->prepare(
-          'DELETE FROM posts WHERE posts.uuid=:uuid;'
-      );
+    public function delete(UUID $uuid): void
+    {
+        try {
+            $statement = $this->connection->prepare(
+                'DELETE FROM posts WHERE uuid = ?'
+            );
+            $statement->execute([(string)$uuid]);
+        } catch (PDOException $e) {
+            throw new PostsRepositoryException(
+                $e->getMessage(), (int)$e->getCode(), $e
+            );
+        }
+    }
 
-      $statement->execute([
-          ':uuid' => $uuid,
-      ]);
-  }
 
 }
