@@ -1,5 +1,6 @@
 <?php
 
+use GB\CP\Blog\Commands\FakeData\PopulateDB;
 use GB\CP\Blog\Commands\Posts\DeletePost;
 use GB\CP\Blog\Commands\Users\CreateUser;
 use GB\CP\Blog\Commands\Users\UpdateUser;
@@ -17,6 +18,7 @@ $commandsClasses = [
     CreateUser::class,
     DeletePost::class,
     UpdateUser::class,
+    PopulateDB::class,
 ];
 
 foreach ($commandsClasses as $commandClass) {
