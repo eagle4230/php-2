@@ -2,6 +2,7 @@
 
 use GB\CP\Blog\Commands\Posts\DeletePost;
 use GB\CP\Blog\Commands\Users\CreateUser;
+use GB\CP\Blog\Commands\Users\UpdateUser;
 use Symfony\Component\Console\Application;
 
 // Подключаем файл bootstrap.php
@@ -15,6 +16,7 @@ $application = new Application();
 $commandsClasses = [
     CreateUser::class,
     DeletePost::class,
+    UpdateUser::class,
 ];
 
 foreach ($commandsClasses as $commandClass) {
