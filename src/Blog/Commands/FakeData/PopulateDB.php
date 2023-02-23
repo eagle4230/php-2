@@ -9,6 +9,7 @@ use GB\CP\Blog\User;
 use GB\CP\Blog\UUID;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class PopulateDB extends Command
@@ -28,7 +29,21 @@ class PopulateDB extends Command
     {
         $this
             ->setName('fake-data:populate-db')
-            ->setDescription('Populates DB with fake data');
+            ->setDescription('Populates DB with fake data')
+            ->addOption(
+                'users-number',
+                'u',
+                InputOption::VALUE_REQUIRED,
+                'Number of created users',
+                1
+            )
+            ->addOption(
+                'posts-number',
+                'p',
+                InputOption::VALUE_REQUIRED,
+                'Number of created posts',
+                1
+            );
     }
 
     protected function execute(
@@ -36,19 +51,19 @@ class PopulateDB extends Command
         OutputInterface $output,
     ): int
     {
-        // Создаём десять пользователей
+        // Создаём пользователей
         $users = [];
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < $input->getOption('users-number'); $i++) {
             $user = $this->createFakeUser();
             $users[] = $user;
-            $output->writeln('User created: ' . $user->getUsername());
+            $output->writeln($i . ' User created: ' . $user->getUsername());
         }
         // От имени каждого пользователя
         // создаём по двадцать статей
         foreach ($users as $user) {
-            for ($i = 0; $i < 20; $i++) {
+            for ($i = 0; $i < $input->getOption('posts-number'); $i++) {
                 $post = $this->createFakePost($user);
-                $output->writeln('Post created: ' . $post->getTitle());
+                $output->writeln($i . ' Post created: ' . $post->getTitle());
             }
         }
         return Command::SUCCESS;
