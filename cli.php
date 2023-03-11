@@ -1,20 +1,34 @@
 <?php
 
-use GB\CP\Blog\{Commands\Arguments, Commands\CreateUserCommand, Exceptions\AppException, User, Post, Comment, UUID};
-use Psr\Log\LoggerInterface;
+use GB\CP\Blog\Commands\FakeData\PopulateDB;
+use GB\CP\Blog\Commands\Posts\DeletePost;
+use GB\CP\Blog\Commands\Users\CreateUser;
+use GB\CP\Blog\Commands\Users\UpdateUser;
+use Symfony\Component\Console\Application;
 
 // Подключаем файл bootstrap.php
 // и получаем настроенный контейнер
 $container = require __DIR__ . '/bootstrap.php';
 
-// Получаем Logger
-$logger = $container->get(LoggerInterface::class);
+// Создаём объект приложения
+$application = new Application();
 
-try {
-    // При помощи контейнера создаём команду
-    $command = $container->get(CreateUserCommand::class);
-    $command->handle(Arguments::fromArgv($argv));
-} catch (AppException $e) {
-    $logger->error($e->getMessage(), ['exception' => $e]);
-    echo "{$e->getMessage()}\n";
+// Перечисляем классы команд
+$commandsClasses = [
+    CreateUser::class,
+    DeletePost::class,
+    UpdateUser::class,
+    PopulateDB::class,
+];
+
+foreach ($commandsClasses as $commandClass) {
+    // Посредством контейнера
+    // создаём объект команды
+    $command = $container->get($commandClass);
+
+    // Добавляем команду к приложению
+    $application->add($command);
 }
+
+// Запускаем приложение
+$application->run();

@@ -1,6 +1,10 @@
 <?php
 
 use Dotenv\Dotenv;
+use Faker\Provider\Lorem;
+use Faker\Provider\ru_RU\Internet;
+use Faker\Provider\ru_RU\Person;
+use Faker\Provider\ru_RU\Text;
 use GB\CP\Blog\Container\DIContainer;
 use GB\CP\Blog\Repositories\AuthTokensRepository\AuthTokensRepositoryInterface;
 use GB\CP\Blog\Repositories\AuthTokensRepository\SqliteAuthTokensRepository;
@@ -14,7 +18,6 @@ use GB\CP\Blog\Repositories\UsersRepository\SqliteUsersRepository;
 use GB\CP\Blog\Repositories\UsersRepository\UsersRepositoryInterface;
 use GB\CP\Http\Actions\Auth\BearerTokenAuthentication;
 use GB\CP\Http\Auth\AuthenticationInterface;
-use GB\CP\Http\Auth\IdentificationInterface;
 use GB\CP\Http\Auth\JsonBodyUsernameIdentification;
 use GB\CP\Http\Auth\PasswordAuthentication;
 use GB\CP\Http\Auth\PasswordAuthenticationInterface;
@@ -65,12 +68,12 @@ if ('yes' === $_ENV['LOG_TO_CONSOLE']) {
 }
 
 $container->bind(
-    IdentificationInterface::class,
+    AuthenticationInterface::class,
     JsonBodyUsernameIdentification::class
 );
 
 $container->bind(
-    IdentificationInterface::class,
+    AuthenticationInterface::class,
     JsonBodyUsernameIdentification::class
 );
 
@@ -122,6 +125,20 @@ $container->bind(
 $container->bind(
     TokenAuthenticationInterface::class,
     BearerTokenAuthentication::class
+);
+
+// Создаём объект генератора тестовых данных
+$faker = new \Faker\Generator();
+// Инициализируем необходимые нам виды данных
+$faker->addProvider(new Person($faker));
+$faker->addProvider(new Text($faker));
+$faker->addProvider(new Internet($faker));
+$faker->addProvider(new Lorem($faker));
+// Добавляем генератор тестовых данных
+// в контейнер внедрения зависимостей
+$container->bind(
+    \Faker\Generator::class,
+    $faker
 );
 
 

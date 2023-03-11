@@ -2,8 +2,8 @@
 
 namespace GB\CP\Blog\UnitTests\Commands;
 
-use PHPUnit\Framework\TestCase;
 use GB\CP\Blog\Commands\Arguments;
+use PHPUnit\Framework\TestCase;
 use GB\CP\Blog\Exceptions\ArgumentsException;
 
 class ArgumentsTest extends TestCase
